@@ -1,0 +1,64 @@
+.om-steps {
+  font-size: 0;
+}
+
+.om-steps.is-horizontal {
+  white-space: nowrap;
+}
+
+.om-step {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.om-step__main {
+  white-space: normal;
+  padding-right: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.om-step__main.is-default {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.om-step__main.is-finished {
+    color: #dde1e6;
+    font-size: 14px;
+}
+.om-step__main.is-processing {
+    color: #ffffff;
+    font-size: 15px;
+}
+.om-step__main.is-wait {
+    color: #dde1e6;
+    font-size: 14px;
+}
+
+.om-step.is-flat .om-step__main, .om-step.is-flat .om-step__body{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.om-step__title {
+  /* font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif; */
+}
+
+.om-step__body {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: transparent;
+  text-align: center;
+  line-height: 28px;
+  font-size: 28px;
+  vertical-align: top;
+  transition: all .15s;
+  cursor: pointer;
+}
+
+.om-step__connect {}
+
+.om-step__icon {}

@@ -1,0 +1,203 @@
+.om-pagination {
+  white-space: nowrap;
+  padding: 2px 5px;
+  color: #48576a
+}
+
+.om-pagination button,
+.om-pagination span {
+  display: inline-block;
+  font-size: 13px;
+  min-width: 28px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: top;
+  box-sizing: border-box
+}
+
+.om-pagination .om-select .om-input {
+  width: 110px
+}
+
+.om-pagination .om-select .om-input input {
+  padding-right: 25px;
+  border-radius: 2px;
+  height: 28px
+}
+
+.om-pagination button {
+  border: none;
+  padding: 0 6px;
+  background: transparent
+}
+
+.om-pagination button:focus {
+  outline: none
+}
+
+.om-pagination button:hover {
+  color: #00b2f0
+}
+
+.om-pagination button.disabled {
+  color: #e4e4e4;
+  background-color: #fff;
+  cursor: not-allowed
+}
+
+.om-pagination .btn-next,
+.om-pagination .btn-prev {
+  background: 50% no-repeat;
+  background-size: 16px;
+  background-color: #fff;
+  border: 1px solid #d1dbe5;
+  cursor: pointer;
+  margin: 0;
+  color: #97a8be
+}
+
+.om-pagination .btn-next .om-icon,
+.om-pagination .btn-prev .om-icon {
+  display: block;
+  font-size: 17px
+}
+
+.om-pagination .btn-prev {
+  border-radius: 2px 0 0 2px;
+  border-right: 0
+}
+
+.om-pagination .btn-next {
+  border-radius: 0 2px 2px 0;
+  border-left: 0
+}
+
+.om-pagination--small .btn-next,
+.om-pagination--small .btn-prev,
+.om-pagination--small .om-pager li,
+.om-pagination--small .om-pager li:last-child {
+  border-color: transparent;
+  font-size: 12px;
+  line-height: 22px;
+  height: 22px;
+  min-width: 22px
+}
+
+.om-pagination--small .arrow.disabled {
+  visibility: hidden
+}
+
+.om-pagination--small .om-pager li {
+  border-radius: 2px
+}
+
+.om-pagination__sizes {
+  margin: 0 10px 0 0
+}
+
+.om-pagination__sizes .om-input .om-input__inner {
+  font-size: 13px;
+  border-color: #d1dbe5
+}
+
+.om-pagination__sizes .om-input .om-input__inner:hover {
+  border-color: #00b2f0
+}
+
+.om-pagination__jump {
+  margin-left: 10px
+}
+
+.om-pagination__total {
+  margin: 0 10px
+}
+
+.om-pagination__rightwrapper {
+  float: right
+}
+
+.om-pagination__editor {
+  border: 1px solid #d1dbe5;
+  border-radius: 2px;
+  line-height: 18px;
+  padding: 4px 2px;
+  width: 30px;
+  text-align: center;
+  margin: 0 6px;
+  box-sizing: border-box;
+  transition: border .3s;
+  -moz-appearance: textfield
+}
+
+.om-pagination__editor::-webkit-inner-spin-button,
+.om-pagination__editor::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0
+}
+
+.om-pagination__editor:focus {
+  outline: none;
+  border-color: #00b2f0
+}
+
+.om-pager {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style: none;
+  font-size: 0;
+  padding: 0
+}
+
+.om-pager,
+.om-pager li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0
+}
+
+.om-pager li {
+  padding: 0 4px;
+  border: 1px solid #d1dbe5;
+  border-right: 0;
+  background: #fff;
+  font-size: 13px;
+  min-width: 28px;
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center
+}
+
+.om-pager li:last-child {
+  border-right: 1px solid #d1dbe5
+}
+
+.om-pager li.btn-quicknext,
+.om-pager li.btn-quickprev {
+  line-height: 28px;
+  color: #97a8be
+}
+
+.om-pager li.btn-quicknext:hover,
+.om-pager li.btn-quickprev:hover {
+  cursor: pointer
+}
+
+.om-pager li.active+li {
+  border-left: 0;
+  padding-left: 5px
+}
+
+.om-pager li:hover {
+  color: #00b2f0
+}
+
+.om-pager li.active {
+  border-color: #00b2f0;
+  background-color: #00b2f0;
+  color: #fff;
+  cursor: default
+}

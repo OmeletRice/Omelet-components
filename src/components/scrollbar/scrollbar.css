@@ -1,0 +1,63 @@
+.om-scrollbar {
+  overflow: hidden;
+  position: relative
+}
+
+.om-scrollbar:active .om-scrollbar__bar,
+.om-scrollbar:focus .om-scrollbar__bar,
+.om-scrollbar:hover .om-scrollbar__bar {
+  opacity: 1;
+  transition: opacity .34s ease-out
+}
+
+.om-scrollbar__wrap {
+  overflow: scroll
+}
+
+.om-scrollbar__wrap--hidden-default::-webkit-scrollbar {
+  width: 0;
+  height: 0
+}
+
+.om-scrollbar__thumb {
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(151, 168, 190, .3);
+  transition: background-color .3s
+}
+
+.om-scrollbar__thumb:hover {
+  background-color: rgba(151, 168, 190, .5)
+}
+
+.om-scrollbar__bar {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity .12s ease-out
+}
+
+.om-scrollbar__bar.is-horizontal {
+  height: 6px;
+  left: 2px
+}
+
+.om-scrollbar__bar.is-horizontal>div {
+  height: 100%
+}
+
+.om-scrollbar__bar.is-vertical {
+  width: 6px;
+  top: 2px
+}
+
+.om-scrollbar__bar.is-vertical>div {
+  width: 100%
+}

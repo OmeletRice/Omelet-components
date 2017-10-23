@@ -1,0 +1,126 @@
+.om-switch {
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  line-height: 22px;
+  height: 22px;
+  vertical-align: middle
+}
+
+.om-switch .labom-fade-enter,
+.om-switch .labom-fade-leave-active {
+  opacity: 0
+}
+
+.om-switch.is-disabled .om-switch__core {
+  border-color: #e4e8f1!important;
+  background: #e4e8f1!important
+}
+
+.om-switch.is-disabled .om-switch__core span {
+  background-color: #fbfdff!important
+}
+
+.om-switch.is-disabled .om-switch__core~.om-switch__label * {
+  color: #fbfdff!important
+}
+
+.om-switch.is-checked .om-switch__core {
+  border-color: #00b2f0;
+  background-color: #00b2f0
+}
+
+.om-switch.is-disabled .om-switch__core,
+.om-switch.is-disabled .om-switch__label {
+  cursor: not-allowed
+}
+
+.om-switch__label {
+  transition: .2s;
+  width: 46px;
+  height: 22px;
+  left: 0;
+  top: 0;
+  cursor: pointer
+}
+
+.om-switch__label,
+.om-switch__label * {
+  position: absolute;
+  display: inline-block;
+  font-size: 14px
+}
+
+.om-switch__label * {
+  line-height: 1;
+  top: 4px;
+  color: #fff
+}
+
+.om-switch__labom--left i {
+  left: 6px
+}
+
+.om-switch__labom--right i {
+  right: 6px
+}
+
+.om-switch__input {
+  display: none
+}
+
+.om-switch__core {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  width: 46px;
+  height: 22px;
+  border: 1px solid #bfcbd9;
+  outline: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: #bfcbd9;
+  cursor: pointer;
+  transition: border-color .3s, background-color .3s
+}
+
+.om-switch__core .om-switch__button {
+  top: 0;
+  left: 0;
+  position: absolute;
+  border-radius: 100%;
+  transition: transform .3s;
+  width: 16px;
+  height: 16px;
+  background-color: #fff
+}
+
+.om-switch--wide .om-switch__label.om-switch__labom--left span {
+  left: 10px
+}
+
+.om-switch--wide .om-switch__label.om-switch__labom--right span {
+  right: 10px
+}
+
+.om-switch--small {
+  height: 18px
+}
+
+.om-switch--small .om-switch__core {
+  height: 17px;
+}
+
+.om-switch--small .om-switch__label {
+  height: 17px;
+  font-size: 13px
+}
+
+.om-switch--small .om-switch__label * {
+  top: 2px
+}
+
+.om-switch--small .om-switch__core .om-switch__button {
+  width: 13px;
+  height: 13px
+}

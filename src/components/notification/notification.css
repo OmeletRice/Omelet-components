@@ -1,0 +1,82 @@
+.om-notification {
+  width: 330px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  position: fixed;
+  right: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  transition: opacity .3s, transform .3s, right .3s, top .4s;
+  overflow: hidden
+}
+
+.om-notification .om-icon-roundcheckfill {
+  color: #13ce66
+}
+
+.om-notification .om-icon-roundclose {
+  color: #ff4949
+}
+
+.om-notification .om-icon-info {
+  color: #50bfff
+}
+
+.om-notification .om-icon-warn {
+  color: #f7ba2a
+}
+
+.om-notification__group {
+  margin-left: 0
+}
+
+.om-notification__group.is-with-icon {
+  margin-left: 55px
+}
+
+.om-notification__title {
+  font-weight: 400;
+  font-size: 16px;
+  color: #1f2d3d;
+  margin: 0
+}
+
+.om-notification__content {
+  font-size: 14px;
+  line-height: 21px;
+  margin: 10px 0 0;
+  color: #8391a5;
+  text-align: justify
+}
+
+.om-notification__icon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  float: left;
+  position: relative;
+  top: 3px
+}
+
+.om-notification__closeBtn {
+  top: 20px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+  color: #bfcbd9;
+  font-size: 14px
+}
+
+.om-notification__closeBtn:hover {
+  color: #97a8be
+}
+
+.om-notification-fade-enter {
+  transform: translateX(100%);
+  right: 0;
+}
+
+.om-notification-fade-leave-active {
+  opacity: 0;
+}

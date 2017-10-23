@@ -1,0 +1,129 @@
+.om-input-number {
+  display: inline-block;
+  width: 180px;
+  position: relative;
+  overflow: hidden
+}
+
+.om-input-number .om-input {
+  display: block
+}
+
+.om-input-number .om-input__inner {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0px 31px;
+  text-align: center
+}
+
+.om-input-number.is-without-controls .om-input__inner {
+  padding-right: 10px
+}
+
+.om-input-number.is-disabled .om-input-number__decrease,
+.om-input-number.is-disabled .om-input-number__increase {
+  border-color: #d1dbe5;
+  color: #d1dbe5
+}
+
+.om-input-number.is-disabled .om-input-number__decrease:hover,
+.om-input-number.is-disabled .om-input-number__increase:hover {
+  color: #d1dbe5;
+  cursor: not-allowed
+}
+
+.om-input-number__decrease,
+.om-input-number__increase {
+  height: auto;
+  /* border-left: 1px solid #bfcbd9; */
+  width: 36px;
+  line-height: 34px;
+  top: 1px;
+  text-align: center;
+  color: #97a8be;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  /* height: 34px; */
+}
+
+.om-input-number__decrease {
+  left: 0px;
+  border-right: 1px solid #bfcbd9
+}
+
+.om-input-number__increase {
+  right: 0px;
+  border-left: 1px solid #bfcbd9
+}
+
+.om-input-number__decrease:hover,
+.om-input-number__increase:hover {
+  color: #00b2f0
+}
+
+.om-input-number__decrease:hover:not(.is-disabled)~.om-input .om-input__inner:not(.is-disabled),
+.om-input-number__increase:hover:not(.is-disabled)~.om-input .om-input__inner:not(.is-disabled) {
+  border-color: #00b2f0
+}
+
+.om-input-number__decrease.is-disabled,
+.om-input-number__increase.is-disabled {
+  color: #d1dbe5;
+  cursor: not-allowed
+}
+
+.om-input-number__increase {
+  right: 0
+}
+
+.om-input-number__decrease {
+  right: 37px
+}
+
+.om-input-number--large {
+  width: 200px
+}
+
+.om-input-number--large .om-input-number__decrease,
+.om-input-number--large .om-input-number__increase {
+  line-height: 42px;
+  width: 42px;
+  font-size: 16px
+}
+
+.om-input-number--large .om-input-number__decrease {
+  right: 43px
+}
+
+.om-input-number--large .om-input__inner {
+  padding-right: 94px
+}
+
+.om-input-number--small {
+  width: 130px
+}
+
+.om-input-number--small .om-input-number__decrease,
+.om-input-number--small .om-input-number__increase {
+  line-height: 29px;
+  width: 30px;
+  font-size: 13px
+}
+
+.om-input-number--small .om-input-number__decrease {
+  right: 31px
+}
+
+.om-input-number--small .om-input__inner {
+  padding-right: 31px
+}
+
+.om-input-number.om-input-number-group .om-input {
+  display: inline-table
+}
+
+.om-input-number.om-input-number-group.is-without-controls .om-input__inner {
+  padding: 0 10px;
+}

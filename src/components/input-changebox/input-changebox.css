@@ -1,0 +1,70 @@
+.om-input-changebox {
+  display: inline-block;
+  position: relative;
+}
+
+.om-input-changebox .om-input-changebox__input {
+  display: inline-block;
+  width: auto;
+  transition: .3s
+}
+
+.om-input-changebox .om-input-changebox__input-icon {
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.om-input-changebox .om-input__inner {
+  border-color: transparent
+}
+
+.om-input-changebox .om-input-changebox__btn {
+  line-height: 28px;
+  height: 28px;
+  font-size: 13px;
+  vertical-align: middle;
+  display: inline-block;
+  width: auto
+}
+
+.om-input-changebox .om-input .om-input__inner {
+  width: auto
+}
+
+.om-input-changebox .om-input.is-disabled .om-input__inner {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: default;
+}
+
+.om-input-changebox .om-input.is-editing .om-input__inner {
+  border-color: #bfcbd9
+}
+
+.om-input-changebox__btn-cancel,
+.om-input-changebox__btn-confirm {
+  height: 28px;
+  padding: 0 5px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  cursor: pointer;
+}
+
+.om-input-changebox__btn-cancel .om-icon {
+  color: #da6666
+}
+
+.om-input-changebox__btn-confirm .om-icon {
+  color: #39b51c
+}
+
+.om-input-changebox__btn-cancel:hover .om-icon {
+  color: #f30000
+}
+
+.om-input-changebox__btn-confirm:hover .om-icon {
+  color: #32d00e
+}
