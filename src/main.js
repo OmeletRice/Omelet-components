@@ -2,6 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import Omelete from './components/index.js'
+
+Vue.use(Omelete)
 
 Vue.config.productionTip = false
 
