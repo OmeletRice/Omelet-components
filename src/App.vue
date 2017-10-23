@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <om-button>x</om-button>
+    <p>example:</p>
+    <example-all></example-all>
   </div>
 </template>
 
 <script>
-import OmButton from './components/button/button'
+import ExampleAll from '../example/index'
 export default {
   name: 'app',
   components: {
-    OmButton
+    ExampleAll
   }
 }
 </script>
