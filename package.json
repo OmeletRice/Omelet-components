@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "tinycolor2": "^1.4.1",
     "vue": "^2.5.2"
   },
   "devDependencies": {

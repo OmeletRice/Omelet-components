@@ -28,7 +28,7 @@
         <k-color-picker ref="chrome" v-model="val" :show-alpha="showAlpha" :show-fields="showFields" @change="handleColorChange" @changed="handleColorChanged">
           <div class="om-color-dropdown__control">
             <div class="om-color-dropdown__control-more" @click.stop="switchFields">
-              <span>{{ switchText }}</span>
+              <!-- <span>{{ switchText }}</span> -->
             </div>
           </div>
         </k-color-picker>
@@ -88,6 +88,7 @@ export default {
     showPopper(isShow) {
       if (isShow) {
         this.val = this.oldColor
+        if (this.changedColor === null) this.changedColor = { hex: '' }
         this.changedColor.hex = this.oldColor
       }
     }
@@ -98,7 +99,7 @@ export default {
       return this.isFields ? 'up' : 'more'
     },
     pick() {
-      if (!this.changedColor || this.changedColor.a === 0) return
+      if (!this.changedColor || this.changedColor.a === 0 || !this.changedColor.hex) return
       return this.changedColor.hex
     }
   },

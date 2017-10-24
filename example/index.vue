@@ -2,6 +2,7 @@
   <div>
     <div class="components">
       <router-link to="/button">button</router-link>
+      <router-link to="/color-picker">color-picker</router-link>
     </div>
     <router-view></router-view>
   </div>

@@ -73,7 +73,7 @@ const PopupManager = {
     this.modalStack.forEach(function (modal) {
       if (modal.id === popupId) {
         // console.log('has this modal');
-        return;
+        return null;
       }
     });
 

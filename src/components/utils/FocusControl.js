@@ -46,4 +46,3 @@ FocusControl.prototype = {
 }
 
 export default FocusControl
-

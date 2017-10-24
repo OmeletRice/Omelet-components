@@ -24,7 +24,8 @@ export default {
       type: [Object, String]
     },
     showAlpha: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     colorList: {
       type: Array
@@ -128,3 +129,8 @@ export default {
   }
 };
 </script>
+
+<style>
+  @import './color-picker.css';
+</style>
+

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import OmButton from './button/button'
 import OmButtonGroup from './button/button-group'
-// import OmColorPicker from './color-picker/color-picker'
+import OmColorPicker from './color-picker/color-picker'
 // import OmDialog from './dialog/dialog'
 // import OmDropdown from './dropdown/dropdown'
 // import OmDropdownMenu from './dropdown/dropdown-menu'
@@ -42,8 +42,8 @@ import OmButtonGroup from './button/button-group'
 
 const components = [
   OmButton,
-  OmButtonGroup
-  // OmColorPicker,
+  OmButtonGroup,
+  OmColorPicker
   // OmDragList,
   // OmDialog,
   // OmDropdown,
