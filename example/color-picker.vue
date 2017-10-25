@@ -2,6 +2,7 @@
     <div>
     <h2>Color-Picker</h2>
     <h3>Prop: value showAlpha colorList size</h3>
+    <h3>暂记：1.提供除了 hex 的输入 2.v-modle的 bug</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>value: {{ value }}</span>
@@ -20,7 +21,10 @@
       </div>
     </div>
     <div class="prop-style-preview">
-      <om-color-picker :value="value" :show-alpha="false" 
+      <om-color-picker 
+      :value="value" 
+      :show-alpha="false" 
+      :show-fields="true"
       @change="handleChange" 
       @changed="handleChanged" 
       @enter="handleEnter" 
