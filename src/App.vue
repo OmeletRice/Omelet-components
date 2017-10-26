@@ -7,6 +7,7 @@
 
 <script>
 import ExampleAll from '../example/index'
+import './theme-default/lib/index.css'
 export default {
   name: 'app',
   components: {

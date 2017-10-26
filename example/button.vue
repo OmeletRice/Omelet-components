@@ -36,6 +36,10 @@
     </div>
     <div class="prop-style-preview">
       <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index</om-button>
+      <om-button-group>
+        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index</om-button>
+        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index</om-button>      
+      </om-button-group>
     </div>
   </div>
 </template>
@@ -45,7 +49,7 @@ export default {
   data() {
     return {
       types: ['primary', 'success', 'warning', 'danger', 'info', 'text'],
-      sizes: ['large', 'normal', 'small', 'mini'],
+      sizes: ['medium', 'normal', 'small', 'mini'],
       nativeTypes: ['submit', 'button', 'reset'],
       disableds: [true, false],
       plains: [true, false],

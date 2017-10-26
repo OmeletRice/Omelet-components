@@ -1,11 +1,17 @@
 <template>
-  <button :disabled="disabled" class="om-button" @click="handleClick" :autofocus="autofocus" :type="nativeType" :class="[
+  <button class="om-button"
+    :disabled="disabled" 
+    @click="handleClick" 
+    :autofocus="autofocus" 
+    :type="nativeType" 
+    :class="[
         type ? 'om-button--' + type : '',
         size ? 'om-button--' + size : '',
         {
           'is-disabled': disabled,
           'is-loading': loading,
-          'is-plain': plain
+          'is-plain': plain,
+          'is-round': round
         }
       ]">
     <i class="om-icon-loading" v-if="loading" @click="handleInnerClick"></i>
@@ -36,7 +42,8 @@ export default {
     loading: Boolean,
     disabled: Boolean,
     plain: Boolean,
-    autofocus: Boolean
+    autofocus: Boolean,
+    round: Boolean
   },
 
   methods: {
@@ -51,7 +58,3 @@ export default {
   }
 };
 </script>
-
-<style>
-  @import './button.css';
-</style>
