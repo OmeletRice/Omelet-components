@@ -5,11 +5,24 @@
     <h3>modal层样式引入问题</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
-        <button @click="handleShowDialog">show</button>
+        <button @click="handleShowDialog(1)">show1</button>
       </div>
     </div>
     <div class="prop-style-preview">
-      <om-dialog :title="'Title'" :visible="isShow">This is Dialog Content</om-dialog>
+      <om-dialog 
+        v-model="isShow1"
+        :title="'Title'" 
+        :modal="true"
+        :modal-append-to-body="true">
+          This is Dialog Content
+        <button @click="handleShowDialog(2)">show2</button>
+        <om-dialog 
+          v-model="isShow2"
+          :title="'Title'" 
+          :modal="true"
+          :modal-append-to-body="false">
+          This is Content</om-dialog>
+      </om-dialog>
     </div>
   </div>
 </template>
@@ -18,7 +31,8 @@
 export default {
   data() {
     return {
-      isShow: false
+      isShow1: false,
+      isShow2: false
     }
   },
 
@@ -26,8 +40,12 @@ export default {
     handle(s, t) {
       this[t] = s
     },
-    handleShowDialog() {
-      this.isShow = true
+    handleShowDialog(val) {
+      if (val === 1) {
+        this.isShow1 = true
+      } else if (val === 2) {
+        this.isShow2 = true
+      }
     }
   }
 }

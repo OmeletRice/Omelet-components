@@ -1,0 +1,12 @@
+$namespace: 'om';
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
+
+@mixin b($block) {
+  $B: $namespace+'-'+$block !global;
+
+  .#{$B} {
+    @content;
+  }
+}

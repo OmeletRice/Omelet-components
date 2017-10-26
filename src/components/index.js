@@ -1,13 +1,14 @@
-import Vue from 'vue'
-import OmButton from './button/button'
-import OmButtonGroup from './button/button-group'
-import OmColorPicker from './color-picker/color-picker'
-import OmDialog from './dialog/dialog'
+
+import OmButton from './button/index.js'
+import OmButtonGroup from './button-group/index.js'
+// 第三方依赖
+// import OmColorPicker from './color-picker/index.js'
+import OmDialog from './dialog/index.js'
 // import OmDropdown from './dropdown/dropdown'
 // import OmDropdownMenu from './dropdown/dropdown-menu'
 // import mpDropdownItem from './dropdown/dropdown-item'
 // import OmInput from './input/input'
-// import OmInputNumber from './input-number/input-number'
+// import OmInputNumber from './input-number/index.js'
 // import OmInputChangebox from './input-changebox/input-changebox'
 // import OmRadioButton from './radio/radio-button'
 // import OmRadioGroup from './radio/radio-group'
@@ -43,14 +44,14 @@ import OmDialog from './dialog/dialog'
 const components = [
   OmButton,
   OmButtonGroup,
-  OmColorPicker,
+  // OmColorPicker,
   // OmDragList,
   OmDialog
   // OmDropdown,
   // OmDropdownMenu,
   // mpDropdownItem,
   // OmInput,
-  // OmInputNumber,
+  // OmInputNumber
   // OmInputChangebox,
   // OmRadioButton,
   // OmRadioGroup,
@@ -80,7 +81,7 @@ const components = [
   // OmCropper
 ]
 
-const install = function () {
+const install = function (Vue, opts = {}) {
   if (install.installed) return;
   components.forEach(component => {
     Vue.component(component.name, component)
@@ -99,6 +100,10 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export default {
-  install
+module.exports = {
+  version: '0.0.1',
+  install,
+  OmButton,
+  OmButtonGroup,
+  OmDialog
 }

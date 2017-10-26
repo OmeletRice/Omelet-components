@@ -78,7 +78,7 @@ export default {
 
     top: {
       type: String,
-      default: '5%'
+      default: '15%'
     },
     beforeClose: Function
   },
@@ -145,5 +145,13 @@ export default {
 
 <style>
   @import './dialog.css';
+  .om-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  background: #000;
+}
 </style>
-

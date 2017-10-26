@@ -1,0 +1,113 @@
+
+/* Colors
+-------------------------- */
+$--color-white: #fff;
+$--color-black: #000;
+
+$--color-primary: #409EFF !default;
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%); /* 53a8ff */
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%); /* 66b1ff */
+$--color-primary-light-3: mix($--color-white, $--color-primary, 30%); /* 79bbff */
+$--color-primary-light-4: mix($--color-white, $--color-primary, 40%); /* 8cc5ff */
+$--color-primary-light-5: mix($--color-white, $--color-primary, 50%); /* a0cfff */
+$--color-primary-light-6: mix($--color-white, $--color-primary, 60%); /* b3d8ff */
+$--color-primary-light-7: mix($--color-white, $--color-primary, 70%); /* c6e2ff */
+$--color-primary-light-8: mix($--color-white, $--color-primary, 80%); /* d9ecff */
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%); /* ecf5ff */
+
+$--color-success: #67c23a !default;
+$--color-warning: #eb9e05 !default;
+$--color-danger: #fa5555 !default;
+$--color-info: #878d99 !default;
+
+$--color-success-light: mix($--color-white, $--color-success, 80%);
+$--color-warning-light: mix($--color-white, $--color-warning, 80%);
+$--color-danger-light: mix($--color-white, $--color-danger, 80%);
+$--color-info-light: mix($--color-white, $--color-info, 80%);
+
+$--color-success-lighter: mix($--color-white, $--color-success, 90%);
+$--color-warning-lighter: mix($--color-white, $--color-warning, 90%);
+$--color-danger-lighter: mix($--color-white, $--color-danger, 90%);
+$--color-info-lighter: mix($--color-white, $--color-info, 90%);
+
+$--color-text-primary: #2d2f33 !default;
+$--color-text-regular: #5a5e66 !default;
+$--color-text-secondary: #878d99 !default;
+$--color-text-placeholder: #b4bccc !default;
+
+/* Border
+-------------------------- */
+$--border-width-base: 1px;
+$--border-style-base: solid;
+$--border-color-base: #d8dce5 !default;
+$--border-color-light: #dfe4ed !default;
+$--border-color-lighter: #e6ebf5 !default;
+$--border-color-extra-light: #edf2fc !default;
+$--border-color-hover: $--color-text-placeholder;
+$--border-base: $--border-width-base $--border-style-base $--border-color-base;
+$--border-radius-base: 4px;
+$--border-radius-small: 2px;
+$--border-radius-circle: 100%;
+
+/* Font
+-------------------------- */
+$--font-size-base: 14px;
+$--font-size-small: 13px;
+$--font-size-large: 18px;
+$--font-color-disabled-base: #bbb;
+$--font-weight-primary: 500;
+$--font-line-height-primary: 24px;
+
+/* Button
+-------------------------- */
+$--button-font-size: 14px;
+$--button-font-weight: $--font-weight-primary;
+$--button-border-radius: $--border-radius-base;
+$--button-padding-vertical: 12px;
+$--button-padding-horizontal: 20px;
+
+$--button-medium-font-size: 14px;
+$--button-medium-border-radius: $--border-radius-base;
+$--button-medium-padding-vertical: 10px;
+$--button-medium-padding-horizontal: 20px;
+
+$--button-small-font-size: 12px;
+$--button-small-border-radius: #{$--border-radius-base - 1};
+$--button-small-padding-vertical: 9px;
+$--button-small-padding-horizontal: 15px;
+
+$--button-mini-font-size: 12px;
+$--button-mini-border-radius: #{$--border-radius-base - 1};
+$--button-mini-padding-vertical: 7px;
+$--button-mini-padding-horizontal: 15px;
+
+$--button-default-color: $--color-text-regular;
+$--button-default-fill: $--color-white;
+$--button-default-border: $--border-color-base;
+
+$--button-disabled-color: $--color-text-placeholder;
+$--button-disabled-fill: $--color-white;
+$--button-disabled-border: $--border-color-lighter;
+
+$--button-primary-border: $--color-primary;
+$--button-primary-color: $--color-white;
+$--button-primary-fill: $--color-primary;
+
+$--button-success-border: $--color-success;
+$--button-success-color: $--color-white;
+$--button-success-fill: $--color-success;
+
+$--button-warning-border: $--color-warning;
+$--button-warning-color: $--color-white;
+$--button-warning-fill: $--color-warning;
+
+$--button-danger-border: $--color-danger;
+$--button-danger-color: $--color-white;
+$--button-danger-fill: $--color-danger;
+
+$--button-info-border: $--color-info;
+$--button-info-color: $--color-white;
+$--button-info-fill: $--color-info;
+
+$--button-hover-tint-percent: 20%;
+$--button-active-shade-percent: 10%;
