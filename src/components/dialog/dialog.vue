@@ -1,13 +1,16 @@
 <template>
   <transition name="dialog-fade">
     <div class="om-dialog__wrapper" v-show="visible" @click.self="handleWrapperClick">
-      <div class="om-dialog" :class="[sizeClass, customClass]" ref="dialog" :style="style">
+      <div class="om-dialog" 
+        ref="dialog" 
+        :class="[{ 'is-fullscreen': fullscreen }, { 'om-dialog--center': center }, customClass]" 
+        :style="style">
         <div class="om-dialog__header">
           <slot name="title">
             <span class="om-dialog__title">{{title}}</span>
           </slot>
           <button type="button" class="om-dialog__headerbtn" aria-label="Close" v-if="showClose" @click="handleClose">
-            <i class="om-dialog__close om-icon om-icon-roundclose"></i>
+            <i class="om-dialog__close om-icon-close"></i>
           </button>
         </div>
         <div class="om-dialog__body" v-if="rendered">
@@ -22,8 +25,8 @@
 </template>
 
 <script>
-import Popup from '../utils/popup';
-import emitter from '../mixins/emitter';
+import Popup from 'omelet-ui/src/utils/popup';
+import emitter from 'omelet-ui/src/mixins/emitter';
 
 export default {
   name: 'OmDialog',
@@ -46,6 +49,11 @@ export default {
       default: true
     },
 
+    appendToBody: {
+      type: Boolean,
+      default: false
+    },
+
     lockScroll: {
       type: Boolean,
       default: true
@@ -66,11 +74,6 @@ export default {
       default: true
     },
 
-    size: {
-      type: String,
-      default: 'small'
-    },
-
     customClass: {
       type: String,
       default: ''
@@ -80,31 +83,55 @@ export default {
       type: String,
       default: '15%'
     },
-    beforeClose: Function
+
+    beforeClose: Function,
+
+    width: String,
+
+    fullscreen: Boolean,
+
+    center: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      closed: false
+    }
   },
 
   watch: {
     visible(val) {
       this.$emit('update:visible', val);
       if (val) {
-        this.$emit('open');
-        this.$el.addEventListener('scroll', this.updatePopper);
+        this.closed = false
+        this.$emit('open')
+        this.$el.addEventListener('scroll', this.updatePopper)
         this.$nextTick(() => {
-          this.$refs.dialog.scrollTop = 0;
+          this.$refs.dialog.scrollTop = 0
         });
+        if (this.appendToBody) {
+          document.body.appendChild(this.$el)
+        }
       } else {
-        this.$el.removeEventListener('scroll', this.updatePopper);
-        this.$emit('close');
+        this.$el.removeEventListener('scroll', this.updatePopper)
+        if (!this.closed) this.$emit('close')
       }
     }
   },
 
   computed: {
-    sizeClass() {
-      return `om-dialog--${this.size}`;
-    },
     style() {
-      return this.size === 'full' ? {} : { 'top': this.top };
+      let style = {}
+      if (this.width) {
+        style.width = this.width
+      }
+      if (!this.fullscreen) {
+        style.marginTop = this.top
+      }
+      return style
     }
   },
 
@@ -122,36 +149,25 @@ export default {
     },
     hide(cancel) {
       if (cancel !== false) {
-        this.$emit('update:visible', false);
-        this.$emit('visible-change', false);
+        this.$emit('update:visible', false)
+        this.$emit('close')
+        this.closed = true
       }
     },
     updatePopper() {
-      this.broadcast('OmSelectDropdown', 'updatePopper');
-      this.broadcast('OmDropdownMenu', 'updatePopper');
+      this.broadcast('OmSelectDropdown', 'updatePopper')
+      this.broadcast('OmDropdownMenu', 'updatePopper')
     }
   },
 
   mounted() {
-    this.$parent.popperElm = this.popperElm = this.$el;
-    this.referenceElm = this.$parent.$el;
     if (this.visible) {
-      this.rendered = true;
+      this.rendered = true
       this.open();
+      if (this.appendToBody) {
+        document.body.appendChild(this.$el)
+      }
     }
   }
-};
-</script>
-
-<style>
-  @import './dialog.css';
-  .om-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: .5;
-  background: #000;
 }
-</style>
+</script>

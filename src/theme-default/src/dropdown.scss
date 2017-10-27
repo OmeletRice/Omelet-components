@@ -1,0 +1,52 @@
+@import "common/var";
+@import "mixins/mixins";
+@import "button";
+
+@include b(dropdown) {
+  display: inline-block;
+  position: relative;
+  color: $--color-text-regular;
+  font-size: $--font-size-base;
+
+  .om-button-group {
+    display: block;
+    .om-button {
+      float: none;
+    }
+  }
+
+  & .om-dropdown__caret-button {
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    border-left: none;
+
+    &::before {
+      $gap: 5px;
+
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1px;
+      top: $gap;
+      bottom: $gap;
+      left: 0;
+      background: mix(white, transparent, 50%);
+    }
+
+    &:hover {
+      &::before {
+        top: 0;
+        bottom: 0;
+      }
+    }
+
+    & .om-dropdown__icon {
+      padding-left: 0;
+    }
+  }
+  @include e(icon) {
+    font-size: 12px;
+    margin: 0 3px;
+  }
+}

@@ -64,10 +64,10 @@ const getDOM = function (dom) {
 };
 
 export default {
-  model: {
-    prop: 'visible',
-    event: 'visible-change'
-  },
+  // model: {
+  //   prop: 'visible',
+  //   event: 'visible-change'
+  // },
   props: {
     visible: {
       type: Boolean,

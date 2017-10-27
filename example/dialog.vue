@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Dialog</h2>
-    <h3>Prop: title modal modalAppendToBody lockScroll closeOnClickModal closeOnPressEscape showClose size customClass top beforeClose</h3>
+    <h3>Prop: title modal modalAppendToBody lockScroll closeOnClickModal closeOnPressEscape showClose customClass top beforeClose</h3>
     <h3>modal层样式引入问题</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
@@ -10,17 +10,21 @@
     </div>
     <div class="prop-style-preview">
       <om-dialog 
-        v-model="isShow1"
+        :visible.sync="isShow1"
         :title="'Title'" 
         :modal="true"
+        :fullscreen="false"
+        :center="true"
+        :append-to-body="true"
         :modal-append-to-body="true">
           This is Dialog Content
         <button @click="handleShowDialog(2)">show2</button>
         <om-dialog 
-          v-model="isShow2"
+          :visible.sync="isShow2"
           :title="'Title'" 
           :modal="true"
-          :modal-append-to-body="false">
+          :append-to-body="true"          
+          :modal-append-to-body="true">
           This is Content</om-dialog>
       </om-dialog>
     </div>

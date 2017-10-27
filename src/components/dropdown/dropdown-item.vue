@@ -11,7 +11,7 @@
   </li>
 </template>
 <script>
-  import Emitter from '../mixins/emitter';
+  import Emitter from 'omelet-ui/src/mixins/emitter'
 
   export default {
     name: 'OmDropdownItem',
@@ -21,12 +21,15 @@
     props: {
       command: null,
       disabled: Boolean,
-      divided: Boolean
+      divided: {
+        type: Boolean,
+        default: false
+      }
     },
 
     methods: {
       handleClick(e) {
-        this.dispatch('OmDropdown', 'menu-item-click', [this.command, this]);
+        this.dispatch('OmDropdown', 'menu-item-click', [this.command, this])
       }
     }
   };

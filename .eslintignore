@@ -1,4 +1,4 @@
 build/*.js
 config/*.js
 
-src/components/utils/popper.js
+src/utils/popper.js

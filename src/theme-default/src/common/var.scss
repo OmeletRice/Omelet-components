@@ -1,4 +1,13 @@
 
+/* Transition
+-------------------------- */
+$--all-transition: all .3s cubic-bezier(.645,.045,.355,1);
+$--fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+$--fade-linear-transition: opacity 200ms linear;
+$--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+$--border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1);
+$--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1);
+
 /* Colors
 -------------------------- */
 $--color-white: #fff;
@@ -34,6 +43,17 @@ $--color-text-primary: #2d2f33 !default;
 $--color-text-regular: #5a5e66 !default;
 $--color-text-secondary: #878d99 !default;
 $--color-text-placeholder: #b4bccc !default;
+
+/* Link
+-------------------------- */
+$--link-color: $--color-primary-light-2;
+$--link-hover-color: $--color-primary;
+
+/* Box-shadow
+-------------------------- */
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
+$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 
 /* Border
 -------------------------- */
@@ -111,3 +131,28 @@ $--button-info-fill: $--color-info;
 
 $--button-hover-tint-percent: 20%;
 $--button-active-shade-percent: 10%;
+
+/* Dialog
+-------------------------- */
+$--dialog-background-color: $--color-primary-light-4;
+$--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+$--dialog-close-hover-color: $--color-primary;
+$--dialog-title-font-size: $--font-size-large;
+$--dialog-font-size: 14px;
+$--dialog-line-height: $--font-line-height-primary;
+$--dialog-padding-primary: 15px;
+
+/* Message 
+-------------------------- */
+$--message-close-size: 16px;
+
+/* Dropdown
+-------------------------- */
+$--dropdown-menu-box-shadow: $--box-shadow-light;
+$--dropdown-menuItem-hover-fill: $--color-primary-light-9;
+$--dropdown-menuItem-hover-color: $--link-color;
+
+/* Infinite Loading
+--------------------------*/
+$--infinite-loading-spinner-size: 28px;
+$--infinite-status-prompt-color: #666666 !default;

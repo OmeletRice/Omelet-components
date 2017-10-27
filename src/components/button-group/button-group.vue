@@ -8,6 +8,3 @@
     name: 'OmButtonGroup'
   }
 </script>
-<style>
-  @import './button-group.css';
-</style>

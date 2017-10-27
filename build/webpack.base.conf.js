@@ -24,6 +24,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'omelet-ui': resolve('/'),
       'components': resolve('src/components')
     }
   },

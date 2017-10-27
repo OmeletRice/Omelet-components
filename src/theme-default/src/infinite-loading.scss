@@ -1,0 +1,211 @@
+@import "common/var";
+@import "mixins/mixins";
+
+@include b(infinite-loading-container) {
+  clear: both;
+  text-align: center;
+
+  & [class^=loading-] {
+    display: inline-block;
+    margin: 15px 0;
+    width: $--infinite-loading-spinner-size;
+    height: $--infinite-loading-spinner-size;
+    font-size: $--infinite-loading-spinner-size;
+    line-height: $--infinite-loading-spinner-size;
+    border-radius: 50%;
+  }
+}
+
+@include b(infinite-status-prompt) {
+  color: $--infinite-status-prompt-color;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+@include b(loading-wave-dots) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -4px;
+    width: 8px;
+    height: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    animation: linear loading-wave-dots 2.8s infinite;
+  }
+}
+
+@keyframes loading-wave-dots {
+  0% {
+    box-shadow: -32px 0 0 #bbb, -16px 0 0 #bbb, 16px 0 0 #bbb, 32px 0 0 #bbb
+  }
+  5% {
+    box-shadow: -32px -4px 0 #bbb, -16px 0 0 #bbb, 16px 0 0 #bbb, 32px 0 0 #bbb;
+    transform: translateY(0)
+  }
+  10% {
+    box-shadow: -32px -6px 0 #999, -16px -4px 0 #bbb, 16px 0 0 #bbb, 32px 0 0 #bbb;
+    transform: translateY(0)
+  }
+  15% {
+    box-shadow: -32px 2px 0 #bbb, -16px -2px 0 #999, 16px 4px 0 #bbb, 32px 4px 0 #bbb;
+    transform: translateY(-4px);
+    background-color: #bbb
+  }
+  20% {
+    box-shadow: -32px 6px 0 #bbb, -16px 4px 0 #bbb, 16px 2px 0 #bbb, 32px 6px 0 #bbb;
+    transform: translateY(-6px);
+    background-color: #999
+  }
+  25% {
+    box-shadow: -32px 2px 0 #bbb, -16px 2px 0 #bbb, 16px -4px 0 #999, 32px -2px 0 #bbb;
+    transform: translateY(-2px);
+    background-color: #bbb
+  }
+  30% {
+    box-shadow: -32px 0 0 #bbb, -16px 0 0 #bbb, 16px -2px 0 #bbb, 32px -6px 0 #999;
+    transform: translateY(0)
+  }
+  35% {
+    box-shadow: -32px 0 0 #bbb, -16px 0 0 #bbb, 16px 0 0 #bbb, 32px -2px 0 #bbb
+  }
+  40% {
+    box-shadow: -32px 0 0 #bbb, -16px 0 0 #bbb, 16px 0 0 #bbb, 32px 0 0 #bbb
+  }
+  to {
+    box-shadow: -32px 0 0 #bbb, -16px 0 0 #bbb, 16px 0 0 #bbb, 32px 0 0 #bbb
+  }
+}
+
+@include b(loading-circles) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -2.5px;
+    margin-left: -2.5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: linear loading-circles .75s infinite;
+  }
+}
+
+@keyframes loading-circles {
+  0% {
+    box-shadow: 0 -12px 0 #505050, 8.52px -8.52px 0 #646464, 12px 0 0 #797979, 8.52px 8.52px 0 #8d8d8d, 0 12px 0 #a2a2a2, -8.52px 8.52px 0 #b6b6b6, -12px 0 0 #cacaca, -8.52px -8.52px 0 #dfdfdf
+  }
+  12.5% {
+    box-shadow: 0 -12px 0 #dfdfdf, 8.52px -8.52px 0 #505050, 12px 0 0 #646464, 8.52px 8.52px 0 #797979, 0 12px 0 #8d8d8d, -8.52px 8.52px 0 #a2a2a2, -12px 0 0 #b6b6b6, -8.52px -8.52px 0 #cacaca
+  }
+  25% {
+    box-shadow: 0 -12px 0 #cacaca, 8.52px -8.52px 0 #dfdfdf, 12px 0 0 #505050, 8.52px 8.52px 0 #646464, 0 12px 0 #797979, -8.52px 8.52px 0 #8d8d8d, -12px 0 0 #a2a2a2, -8.52px -8.52px 0 #b6b6b6
+  }
+  37.5% {
+    box-shadow: 0 -12px 0 #b6b6b6, 8.52px -8.52px 0 #cacaca, 12px 0 0 #dfdfdf, 8.52px 8.52px 0 #505050, 0 12px 0 #646464, -8.52px 8.52px 0 #797979, -12px 0 0 #8d8d8d, -8.52px -8.52px 0 #a2a2a2
+  }
+  50% {
+    box-shadow: 0 -12px 0 #a2a2a2, 8.52px -8.52px 0 #b6b6b6, 12px 0 0 #cacaca, 8.52px 8.52px 0 #dfdfdf, 0 12px 0 #505050, -8.52px 8.52px 0 #646464, -12px 0 0 #797979, -8.52px -8.52px 0 #8d8d8d
+  }
+  62.5% {
+    box-shadow: 0 -12px 0 #8d8d8d, 8.52px -8.52px 0 #a2a2a2, 12px 0 0 #b6b6b6, 8.52px 8.52px 0 #cacaca, 0 12px 0 #dfdfdf, -8.52px 8.52px 0 #505050, -12px 0 0 #646464, -8.52px -8.52px 0 #797979
+  }
+  75% {
+    box-shadow: 0 -12px 0 #797979, 8.52px -8.52px 0 #8d8d8d, 12px 0 0 #a2a2a2, 8.52px 8.52px 0 #b6b6b6, 0 12px 0 #cacaca, -8.52px 8.52px 0 #dfdfdf, -12px 0 0 #505050, -8.52px -8.52px 0 #646464
+  }
+  87.5% {
+    box-shadow: 0 -12px 0 #646464, 8.52px -8.52px 0 #797979, 12px 0 0 #8d8d8d, 8.52px 8.52px 0 #a2a2a2, 0 12px 0 #b6b6b6, -8.52px 8.52px 0 #cacaca, -12px 0 0 #dfdfdf, -8.52px -8.52px 0 #505050
+  }
+  to {
+    box-shadow: 0 -12px 0 #505050, 8.52px -8.52px 0 #646464, 12px 0 0 #797979, 8.52px 8.52px 0 #8d8d8d, 0 12px 0 #a2a2a2, -8.52px 8.52px 0 #b6b6b6, -12px 0 0 #cacaca, -8.52px -8.52px 0 #dfdfdf
+  }
+}
+
+@include b(loading-bubbles) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -.5px;
+    margin-left: -.5px;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    animation: linear loading-bubbles .85s infinite
+  }
+}
+
+@keyframes loading-bubbles {
+  0% {
+    box-shadow: 0 -12px 0 .4px #666, 8.52px -8.52px 0 .8px #666, 12px 0 0 1.2px #666, 8.52px 8.52px 0 1.6px #666, 0 12px 0 2px #666, -8.52px 8.52px 0 2.4px #666, -12px 0 0 2.8px #666, -8.52px -8.52px 0 3.2px #666
+  }
+  12.5% {
+    box-shadow: 0 -12px 0 3.2px #666, 8.52px -8.52px 0 .4px #666, 12px 0 0 .8px #666, 8.52px 8.52px 0 1.2px #666, 0 12px 0 1.6px #666, -8.52px 8.52px 0 2px #666, -12px 0 0 2.4px #666, -8.52px -8.52px 0 2.8px #666
+  }
+  25% {
+    box-shadow: 0 -12px 0 2.8px #666, 8.52px -8.52px 0 3.2px #666, 12px 0 0 .4px #666, 8.52px 8.52px 0 .8px #666, 0 12px 0 1.2px #666, -8.52px 8.52px 0 1.6px #666, -12px 0 0 2px #666, -8.52px -8.52px 0 2.4px #666
+  }
+  37.5% {
+    box-shadow: 0 -12px 0 2.4px #666, 8.52px -8.52px 0 2.8px #666, 12px 0 0 3.2px #666, 8.52px 8.52px 0 .4px #666, 0 12px 0 .8px #666, -8.52px 8.52px 0 1.2px #666, -12px 0 0 1.6px #666, -8.52px -8.52px 0 2px #666
+  }
+  50% {
+    box-shadow: 0 -12px 0 2px #666, 8.52px -8.52px 0 2.4px #666, 12px 0 0 2.8px #666, 8.52px 8.52px 0 3.2px #666, 0 12px 0 .4px #666, -8.52px 8.52px 0 .8px #666, -12px 0 0 1.2px #666, -8.52px -8.52px 0 1.6px #666
+  }
+  62.5% {
+    box-shadow: 0 -12px 0 1.6px #666, 8.52px -8.52px 0 2px #666, 12px 0 0 2.4px #666, 8.52px 8.52px 0 2.8px #666, 0 12px 0 3.2px #666, -8.52px 8.52px 0 .4px #666, -12px 0 0 .8px #666, -8.52px -8.52px 0 1.2px #666
+  }
+  75% {
+    box-shadow: 0 -12px 0 1.2px #666, 8.52px -8.52px 0 1.6px #666, 12px 0 0 2px #666, 8.52px 8.52px 0 2.4px #666, 0 12px 0 2.8px #666, -8.52px 8.52px 0 3.2px #666, -12px 0 0 .4px #666, -8.52px -8.52px 0 .8px #666
+  }
+  87.5% {
+    box-shadow: 0 -12px 0 .8px #666, 8.52px -8.52px 0 1.2px #666, 12px 0 0 1.6px #666, 8.52px 8.52px 0 2px #666, 0 12px 0 2.4px #666, -8.52px 8.52px 0 2.8px #666, -12px 0 0 3.2px #666, -8.52px -8.52px 0 .4px #666
+  }
+  to {
+    box-shadow: 0 -12px 0 .4px #666, 8.52px -8.52px 0 .8px #666, 12px 0 0 1.2px #666, 8.52px 8.52px 0 1.6px #666, 0 12px 0 2px #666, -8.52px 8.52px 0 2.4px #666, -12px 0 0 2.8px #666, -8.52px -8.52px 0 3.2px #666
+  }
+}
+
+@include b(loading-default) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -3px;
+    width: 6px;
+    height: 6px;
+    background-color: #999;
+    border-radius: 50%
+  }
+}
+
+@include b(loading-spiral) {
+  border: 2px solid #777;
+  border-right-color: transparent;
+  animation: linear loading-rotating .85s infinite
+}
+
+@keyframes loading-rotating {
+  0% {
+    transform: rotate(0)
+  }
+  to {
+    transform: rotate(1turn)
+  }
+}

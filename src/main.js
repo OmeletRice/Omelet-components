@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import routers from '../example/router.js'
-import Omelete from './components/index.js'
+import Omelete from './index.js'
 
 Vue.use(VueRouter)
 Vue.use(Omelete)
