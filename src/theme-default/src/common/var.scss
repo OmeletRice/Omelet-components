@@ -44,6 +44,10 @@ $--color-text-regular: #5a5e66 !default;
 $--color-text-secondary: #878d99 !default;
 $--color-text-placeholder: #b4bccc !default;
 
+/* Background
+-------------------------- */
+$--background-color-base: #f5f7fa;
+
 /* Link
 -------------------------- */
 $--link-color: $--color-primary-light-2;
@@ -68,6 +72,12 @@ $--border-base: $--border-width-base $--border-style-base $--border-color-base;
 $--border-radius-base: 4px;
 $--border-radius-small: 2px;
 $--border-radius-circle: 100%;
+
+/* Disable base
+-------------------------- */
+$--disabled-fill-base: $--background-color-base;
+$--disabled-color-base: $--color-text-placeholder;
+$--disabled-border-base: $--border-color-light;
 
 /* Font
 -------------------------- */
@@ -156,3 +166,39 @@ $--dropdown-menuItem-hover-color: $--link-color;
 --------------------------*/
 $--infinite-loading-spinner-size: 28px;
 $--infinite-status-prompt-color: #666666 !default;
+
+/* Input
+-------------------------- */
+$--input-font-size: $--font-size-base;
+$--input-color: $--color-text-regular;
+$--input-width: 140px;
+$--input-height: 40px;
+$--input-border: $--border-base;
+$--input-border-color: $--border-color-base;
+$--input-border-radius: $--border-radius-base;
+$--input-border-color-hover: $--border-color-hover;
+$--input-fill: $--color-white;
+$--input-fill-disabled: $--disabled-fill-base;
+$--input-color-disabled: $--font-color-disabled-base;
+$--input-icon-color: $--color-text-placeholder;
+$--input-placeholder-color: $--color-text-placeholder;
+$--input-max-width: 314px;
+
+$--input-hover-border: $--border-color-hover;
+
+$--input-focus-border: $--color-primary;
+$--input-focus-fill: $--color-white;
+
+$--input-disabled-fill: $--disabled-fill-base;
+$--input-disabled-border: $--disabled-border-base;
+$--input-disabled-color: $--disabled-color-base;
+$--input-disabled-placeholder-color: $--color-text-placeholder;
+
+$--input-medium-font-size: 14px;
+$--input-medium-height: 36px;
+
+$--input-small-font-size: 13px;
+$--input-small-height: 32px;
+
+$--input-mini-font-size: 12px;
+$--input-mini-height: 28px;
