@@ -6,6 +6,7 @@ $--fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 $--fade-linear-transition: opacity 200ms linear;
 $--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
 $--border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1);
+$--background-color-transition-base: background-color .2s cubic-bezier(.645,.045,.355,1);
 $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1);
 
 /* Colors
@@ -67,6 +68,7 @@ $--border-color-base: #d8dce5 !default;
 $--border-color-light: #dfe4ed !default;
 $--border-color-lighter: #e6ebf5 !default;
 $--border-color-extra-light: #edf2fc !default;
+$--border-color-transparent: transparent !default;
 $--border-color-hover: $--color-text-placeholder;
 $--border-base: $--border-width-base $--border-style-base $--border-color-base;
 $--border-radius-base: 4px;
@@ -202,3 +204,11 @@ $--input-small-height: 32px;
 
 $--input-mini-font-size: 12px;
 $--input-mini-height: 28px;
+
+/* Input-Changebox
+-------------------------- */
+$--input-changebox-font-size: $--font-size-base;
+$--input-changebox-color: $--color-text-regular;
+$--input-changebox-width: 140px;
+$--input-changebox-height: 40px;
+$--input-changebox-border-color: $--border-color-base;

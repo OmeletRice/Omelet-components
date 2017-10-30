@@ -6,6 +6,8 @@
       <router-link to="/dialog">Dialog</router-link>
       <router-link to="/dropdown">Dropdown</router-link>
       <router-link to="/input">Input</router-link>
+      <router-link to="/input-changebox">InputChangebox</router-link>
+      <router-link to="/input-number">InputNumber</router-link>
     </div>
     <router-view></router-view>
   </div>

@@ -1,18 +1,39 @@
 <template>
-  <div class="om-input-changebox">
-    <om-input class="om-input-changebox__input" size="small" ref="input" :disabled="disabled" :class="isEditing ? 'is-editing' : ''" :value="value" @focus="isEditing = true" @blur="handleBlur" @change="handleChange">
-      <span v-if="icon" slot="icon" class="om-input-changebox__input-icon" @click.stop="handleIconClick">
-        <i class="om-icon om-icon-storage-pencil"></i>
-      </span>
-    </om-input>
-    <div class="om-input-changebox__btn" v-if="checkBtn" v-show="isEditing">
-      <span class="om-input-changebox__btn-cancel" @click.stop="handleCancel">
+  <div class="om-input-changebox"
+    :class="[
+      size ? 'om-input-changebox--' + size : '',
+      { 'is-disabled': disabled ,
+        'is-editing': isEditing,
+        'om-input-changebox--prefix': $slots.prefix || prefixIcon }
+    ]">
+    <input class="om-input-changebox__inner" 
+      ref="input"
+      :disabled="disabled"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @input="handleInput"
+      @change="handleChange"
+      :value="val"/>
+    <span class="om-input-changebox__prefix" v-if="$slots.prefix || prefixIcon"        
+      :style="prefixOffset" @click.stop="handlePrefixIconClick">
+      <slot name="prefix"></slot>
+      <i class="om-input-changebox__icon"
+          v-if="prefixIcon"
+          :class="prefixIcon">
+      </i>
+    </span>
+    <span class="om-input-changebox__btn" 
+      v-if="checkBtn" 
+      v-show="isEditing">
+      <span class="om-input-changebox__btn-cancel"
+         @click.stop="handleCancel">
         <i class="om-icon om-icon-roundclose"></i>
       </span>
-      <span class="om-input-changebox__btn-confirm" @click.stop="handleConfirm">
+      <span class="om-input-changebox__btn-confirm" 
+        @click.stop="handleConfirm">
         <i class="om-icon om-icon-roundcheck"></i>
       </span>
-    </div>
+    </span>
   </div>
 </template>
 <script>
@@ -21,19 +42,23 @@ export default {
 
   props: {
     value: String,
-    isValidChange: {
-      type: Function,
-      default: (err) => { return err }
-    },
+    beforeChanged: Function,
+    size: String,
     icon: String,
+    prefixIcon: String,
     checkBtn: Boolean,
-    disabled: false
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
     return {
       isEditing: false,
-      val: this.value
+      val: this.value,
+      oldVal: this.value,
+      prefixOffset: null
     }
   },
 
@@ -44,37 +69,57 @@ export default {
   },
 
   methods: {
-    handleChange(val) {
-      this.val = val
-      this.$emit('change', val)
+    handleFocus(val) {
+      this.isEditing = true
+    },
+    handleInput(event) {
+      this.val = event.target.value
+      this.$emit('input', this.val)
+    },
+    handleChange(event) {
+      this.$emit('change', event.target.value)
     },
     handleIconClick() {
       this.isEditing = true
     },
     handleBlur() {
-      this.isEditing = false
       this.handleConfirm()
     },
     handleCancel() {
-      this.isEditing = false
-      // console.log('cancel')
+      this.change(false)
     },
     handleConfirm() {
-      // const isValidChange = this.isValidChange(this.val)
-      // if (isValidChange === true) {
-      this.isEditing = false
-      this.$emit('changed', this.val)
-      // } else {
-      //   const err = isValidChange
-      //   this.$notify.error({
-      //     message: 'this is err: ' + err
-      //   })
-      // }
+      if (this.val === this.oldVal) {
+        this.isEditing = false
+        return null
+      } else if (typeof this.beforeChanged === 'function') {
+        this.beforeChanged(this.change)
+      } else {
+        this.change(true)
+      }
+    },
+    change(cancel) {
+      if (cancel !== false) {
+        this.$emit('changed', this.val)
+        this.oldVal = this.val
+        this.isEditing = false
+      } else {
+        this.val = this.oldVal
+      }
+    },
+    handlePrefixIconClick() {
+      this.isEditing = true
+    },
+    focus() {
+      this.$refs.input.focus()
     }
   },
 
   mounted() {
     this.val = this.value
+    this.prefixOffset = {
+      transform: `translateX(0px)`
+    }
   }
 }
 </script>

@@ -10,8 +10,8 @@ import OmDropdown from './components/dropdown/index.js'
 import OmDropdownMenu from './components/dropdown-menu/index.js'
 import OmDropdownItem from './components/dropdown-item/index.js'
 import OmInput from './components/input/index.js'
-// import OmInputNumber from './components/input-number/index.js'
-// import OmInputChangebox from './components/input-changebox/input-changebox'
+import OmInputChangebox from './components/input-changebox/input-changebox'
+import OmInputNumber from './components/input-number/index.js'
 // import OmRadioButton from './components/radio/radio-button'
 // import OmRadioGroup from './components/radio/radio-group'
 // import OmScrollBar from './components/scrollbar/main'
@@ -49,7 +49,10 @@ const components = [
   OmDropdown,
   OmDropdownMenu,
   OmDropdownItem,
-  OmInput
+  OmInput,
+
+  OmInputChangebox,
+  OmInputNumber
 ]
 
 const install = function (Vue, opts = {}) {
@@ -81,5 +84,8 @@ module.exports = {
   OmDropdown,
   OmDropdownMenu,
   OmDropdownItem,
-  OmInput
+  OmInput,
+
+  OmInputChangebox,
+  OmInputNumber
 }

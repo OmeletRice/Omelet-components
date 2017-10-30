@@ -7,12 +7,18 @@
       </div>
     </div>
     <div class="prop-style-preview">
-      <om-input :value="value">
-        <template slot="prepend">Http://</template>
-      </om-input>
-      <om-input v-model="value">
-        <template slot="prepend">Http://xxx</template>
-      </om-input>
+      <om-input-number 
+        v-model="value"
+        :min="-10"
+        :max="10"
+        :step="2">
+      </om-input-number>
+      <om-input-number 
+        :value="value"
+        :min="-10"
+        :max="10"
+        :step="2">
+      </om-input-number>
     </div>
   </div>
 </template>
@@ -21,7 +27,7 @@
 export default {
   data() {
     return {
-      value: 'laksks'
+      value: 123
     }
   },
 

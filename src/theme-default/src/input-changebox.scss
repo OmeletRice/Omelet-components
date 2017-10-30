@@ -1,0 +1,93 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(input-changebox) {
+  display: inline-block;
+  position: relative;
+  font-size: $--font-size-base;
+  width: 100%;
+
+  @include e(inner) {
+    -webkit-appearance: none;
+    background-color: transparent;
+    background-image: none;
+    border-radius: $--input-border-radius;
+    border: $--input-border;
+    border-color: transparent;
+    box-sizing: border-box;
+    color: $--input-color;
+    font-size: inherit;
+    height: $--input-height;
+    line-height: 1;
+    outline: none;
+    padding: 0 15px;
+    transition: $--background-color-transition-base;
+    width: 100%;
+
+    &:hover {
+      background-color: $--background-color-base
+    }
+  }
+
+  @include m(prefix) {
+    .om-input-changebox__inner {
+      padding-left: 30px;
+    }
+  }
+
+  @include when(disabled) {
+    .om-input-changebox__inner {
+      background-color: transparent;
+      cursor: default;
+
+      &:hover {
+        background-color: transparent
+      }
+    }
+  }
+
+  @include when(editing) {
+    .om-input-changebox__inner {
+      outline: none;
+      border-color: $--input-focus-border;
+
+      &:hover {
+        background-color: transparent
+      }
+    }
+  }
+
+  @include m(medium) {
+    font-size: $--input-medium-font-size;
+
+    @include e(inner) {
+      height: $--input-medium-height
+    }
+
+    .om-input-changebox__icon {
+      line-height: $--input-medium-height;
+    }
+  }
+  @include m(small) {
+    font-size: $--input-small-font-size;
+    
+    @include e(inner) {
+      height: $--input-small-height
+    }
+
+    .om-input-changebox__icon {
+      line-height: $--input-small-height;
+    }
+  }
+  @include m(mini) {
+    font-size: $--input-mini-font-size;
+    
+    @include e(inner) {
+      height: $--input-mini-height
+    }
+
+    .om-input-changebox__icon {
+      line-height: $--input-mini-height;
+    }
+  }
+}
