@@ -8,6 +8,7 @@
     </div>
     <div class="prop-style-preview">
       <om-input-number 
+        controls-position="right"
         v-model="value"
         :min="-10"
         :max="10"
@@ -27,7 +28,7 @@
 export default {
   data() {
     return {
-      value: 123
+      value: 0
     }
   },
 

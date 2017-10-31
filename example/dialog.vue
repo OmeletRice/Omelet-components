@@ -14,17 +14,14 @@
         :title="'Title'" 
         :modal="true"
         :fullscreen="false"
-        :center="true"
-        :append-to-body="true"
-        :modal-append-to-body="true">
+        :center="true">
           This is Dialog Content
         <button @click="handleShowDialog(2)">show2</button>
         <om-dialog 
           :visible.sync="isShow2"
           :title="'Title'" 
           :modal="true"
-          :append-to-body="true"          
-          :modal-append-to-body="true">
+          append-to-body>
           This is Content</om-dialog>
       </om-dialog>
     </div>

@@ -1,131 +1,136 @@
+import Vue from 'vue';
 import {
   addClass,
   removeClass
 } from '../utils/dom.js'
 
-function getModal() {
+let hasModal = false;
+
+const getModal = function() {
+  if (Vue.prototype.$isServer) return;
   let modalDom = PopupManager.modalDom;
   if (modalDom) {
-    return modalDom;
+    hasModal = true;
   } else {
+    hasModal = false;
     modalDom = document.createElement('div');
-    modalDom.addEventListener('touchmove', function (event) {
+    PopupManager.modalDom = modalDom;
+
+    modalDom.addEventListener('touchmove', function(event) {
       event.preventDefault();
       event.stopPropagation();
     });
-    modalDom.addEventListener('click', function () {
-      PopupManager.doOnModalClick();
-    });
 
-    PopupManager.modalDom = modalDom;
-    return modalDom;
+    modalDom.addEventListener('click', function() {
+      PopupManager.doOnModalClick && PopupManager.doOnModalClick();
+    });
   }
-}
+
+  return modalDom;
+};
+
+const instances = {};
 
 const PopupManager = {
   zIndex: 2000,
 
-  modalDom: null,
+  modalFade: true,
 
-  modals: {},
+  getInstance: function(id) {
+    return instances[id];
+  },
+
+  register: function(id, instance) {
+    if (id && instance) {
+      instances[id] = instance;
+    }
+  },
+
+  deregister: function(id) {
+    if (id) {
+      instances[id] = null;
+      delete instances[id];
+    }
+  },
+
+  nextZIndex: function() {
+    return PopupManager.zIndex++;
+  },
 
   modalStack: [],
 
-  nextZIndex() {
-    return PopupManager.zIndex++;
-  },
-  // 注册modal实例
-  register(popupId, ins) {
-    // console.log('register:', popupId, ins)
-    if (popupId && ins) {
-      this.modals[popupId] = ins;
-    }
-  },
-  // 取消modal
-  deregister(popupId) {
-    // console.log('deregister:', popupId);
-    // 无法真正删除内存
-    if (popupId) {
-      this.modals[popupId] = null;
-      delete this.modals[popupId];
-    }
-  },
-  getIns(popupId) {
-    const ins = this.modals[popupId];
-    return ins;
-  },
-  // modal 点击事件
-  doOnModalClick() {
-    if (PopupManager.modalStack.length === 0) return;
+  doOnModalClick: function() {
     const topItem = PopupManager.modalStack[PopupManager.modalStack.length - 1];
-    // 获取当前需要关闭的实例
-    const ins = this.getIns(topItem.id);
-    if (ins) {
-      ins.close();
+    if (!topItem) return;
+
+    const instance = PopupManager.getInstance(topItem.id);
+    if (instance && instance.closeOnClickModal) {
+      instance.close();
     }
   },
-  // 传入参数 popupId zIndex
-  openModal(popupId, zIndex, where, modalClass, modalFade) {
-    // console.log('openModal', 'id:' + popupId, 'zidx:' + zIndex, 'where:' + where, modalClass, modalFade);
-    if (!popupId || zIndex === undefined) return;
 
-    // 判断是当前遮罩是否存在 modalStack中
-    this.modalStack.forEach(function (modal) {
-      if (modal.id === popupId) {
-        // console.log('has this modal');
-        return null;
+  openModal: function(id, zIndex, dom, modalClass, modalFade) {
+    if (Vue.prototype.$isServer) return;
+    if (!id || zIndex === undefined) return;
+    this.modalFade = modalFade;
+
+    const modalStack = this.modalStack;
+
+    for (let i = 0, j = modalStack.length; i < j; i++) {
+      const item = modalStack[i];
+      if (item.id === id) {
+        return;
       }
-    });
+    }
 
-    // 获取 Modal
     const modalDom = getModal();
-    // 添加属性
+
     addClass(modalDom, 'om-modal');
-    // 过渡效果
-    addClass(modalDom, 'om-modal-enter');
+    if (this.modalFade && !hasModal) {
+      addClass(modalDom, 'om-modal-enter');
+    }
+    if (modalClass) {
+      let classArr = modalClass.trim().split(/\s+/);
+      classArr.forEach(item => addClass(modalDom, item));
+    }
     setTimeout(() => {
       removeClass(modalDom, 'om-modal-enter');
     }, 200);
-    if (zIndex) {
-      modalDom.style.zIndex = zIndex;
-    }
-    modalDom.style.display = '';
-    // 添加位置
 
-    if (where) {
-      where.parentNode.appendChild(modalDom);
+    if (dom && dom.parentNode && dom.parentNode.nodeType !== 11) {
+      dom.parentNode.appendChild(modalDom);
     } else {
       document.body.appendChild(modalDom);
     }
 
-    // 添加到 modalStack
-    this.modalStack.push({
-      id: popupId,
-      zIndex: zIndex,
-      modalClass: modalClass
-    });
+    if (zIndex) {
+      modalDom.style.zIndex = zIndex;
+    }
+    modalDom.tabIndex = 0;
+    modalDom.style.display = '';
 
-    // console.log(this.modalStack);
+    this.modalStack.push({ id: id, zIndex: zIndex, modalClass: modalClass });
   },
 
-  closeModal(popupId) {
+  closeModal: function(id) {
     const modalStack = this.modalStack;
     const modalDom = getModal();
 
-    // 判断Stack 中是否有modal
     if (modalStack.length > 0) {
       const topItem = modalStack[modalStack.length - 1];
-      // 判断最近的这个
-      if (topItem.id === popupId) {
-        // 刪掉 这个 modal
+      if (topItem.id === id) {
+        if (topItem.modalClass) {
+          let classArr = topItem.modalClass.trim().split(/\s+/);
+          classArr.forEach(item => removeClass(modalDom, item));
+        }
+
         modalStack.pop();
         if (modalStack.length > 0) {
           modalDom.style.zIndex = modalStack[modalStack.length - 1].zIndex;
         }
       } else {
-        // 在Stack 中寻找当前取消的 modal 并将之删除  使用 for 优化
         for (let i = modalStack.length - 1; i >= 0; i--) {
-          if (modalStack[i].id === popupId) {
+          if (modalStack[i].id === id) {
             modalStack.splice(i, 1);
             break;
           }
@@ -133,18 +138,46 @@ const PopupManager = {
       }
     }
 
-    // 刪除完Stack 中的 modal 接着对modalDom 属性操作
     if (modalStack.length === 0) {
-      // 过渡效果
-      addClass(modalDom, 'om-modal-leave');
+      if (this.modalFade) {
+        addClass(modalDom, 'om-modal-leave');
+      }
       setTimeout(() => {
-        removeClass(modalDom, 'om-modal-leave');
-        if (modalDom.parentNode) {
-          modalDom.parentNode.removeChild(modalDom);
+        if (modalStack.length === 0) {
+          if (modalDom.parentNode) modalDom.parentNode.removeChild(modalDom);
+          modalDom.style.display = 'none';
+          PopupManager.modalDom = undefined;
         }
+        removeClass(modalDom, 'om-modal-leave');
       }, 200);
     }
   }
+};
+
+const getTopPopup = function() {
+  if (Vue.prototype.$isServer) return;
+  if (PopupManager.modalStack.length > 0) {
+    const topPopup = PopupManager.modalStack[PopupManager.modalStack.length - 1];
+    if (!topPopup) return;
+    const instance = PopupManager.getInstance(topPopup.id);
+
+    return instance;
+  }
+};
+
+if (!Vue.prototype.$isServer) {
+  // handle `esc` key when the popup is shown
+  window.addEventListener('keydown', function(event) {
+    if (event.keyCode === 27) {
+      const topPopup = getTopPopup();
+
+      if (topPopup && topPopup.closeOnPressEscape) {
+        topPopup.handleClose
+          ? topPopup.handleClose()
+          : (topPopup.handleAction ? topPopup.handleAction('cancel') : topPopup.close());
+      }
+    }
+  });
 }
 
 export default PopupManager;
