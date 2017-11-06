@@ -41,6 +41,9 @@ import OmInputNumber from './components/input-number/index.js'
 // import OmMessageBox from './components/message-box/main.js'
 // import OmInfiniteLoading from './components/infinite-loading/infinite-loading'
 
+import OmRow from './packages/layout/row'
+import OmCol from './packages/layout/col'
+
 const components = [
   OmButton,
   OmButtonGroup,
@@ -52,7 +55,10 @@ const components = [
   OmInput,
 
   OmInputChangebox,
-  OmInputNumber
+  OmInputNumber,
+
+  OmRow,
+  OmCol
 ]
 
 const install = function (Vue, opts = {}) {
@@ -87,5 +93,8 @@ module.exports = {
   OmInput,
 
   OmInputChangebox,
-  OmInputNumber
+  OmInputNumber,
+
+  OmRow,
+  OmCol
 }

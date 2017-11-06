@@ -1,5 +1,6 @@
 // common
 @import "base.scss";
+@import "reset.scss";
 
 // componentes
 @import "button.scss";
@@ -10,3 +11,6 @@
 @import "input.scss";
 @import "input-changebox.scss";
 @import "input-number.scss";
+
+@import "row.scss";
+@import "col.scss";
