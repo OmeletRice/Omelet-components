@@ -21,25 +21,38 @@
       </om-col>
     </om-row>
 
-    <om-row :gutter="20">
-      <om-col :span="6">
+    <om-row :gutter="10">
+      <om-col :span="6" :xs="12">
         <div class="gird-content">
-          col-6
+          col-6_1
         </div>
       </om-col>
-      <om-col :span="6">
+      <om-col :span="6" :xs="12">
         <div class="gird-content">
-          col-6
+          col-6_2
         </div>
       </om-col>
-      <om-col :span="6">
+      <om-col :span="6" :xs="12">
         <div class="gird-content">
-          col-6
+          col-6_3
         </div>
       </om-col>
-      <om-col :span="6">
+      <om-col :span="6" :xs="12">
         <div class="gird-content">
-          col-6
+          col-6_4
+        </div>
+      </om-col>
+    </om-row>
+
+    <om-row :gutter="10">
+      <om-col :push="13" :span="6">
+        <div class="gird-content">
+          col-6_1 push 13
+        </div>
+      </om-col>
+      <om-col :pull="1" :span="6">
+        <div class="gird-content">
+          col-6_2 pull 1
         </div>
       </om-col>
     </om-row>

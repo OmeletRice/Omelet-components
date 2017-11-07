@@ -16,7 +16,13 @@ export default {
 
     pull: Number,
 
-    push: Number
+    push: Number,
+
+    xs: [Number, Object],
+    sm: [Number, Object],
+    md: [Number, Object],
+    lg: [Number, Object],
+    xl: [Number, Object]
   },
 
   computed: {
@@ -45,6 +51,22 @@ export default {
         classList.push(
           prop !== 'span' ? `om-col-${prop}-${this[prop]}` : `om-col-${this[prop]}`
         )
+      }
+    });
+
+    ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
+      const type = typeof this[size]
+      if (type === 'number') {
+        classList.push(
+          `om-col-${size}-${this[size]}`
+        )
+      } else if (type === 'object') {
+        let o = this[size]
+        Object.keys(o).forEach((prop) => {
+          classList.push(
+            prop !== 'span' ? `om-col-${size}-${prop}-${o.prop}` : `om-col-${o[prop]}`
+          )
+        })
       }
     })
 
