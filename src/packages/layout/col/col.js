@@ -64,7 +64,7 @@ export default {
         let o = this[size]
         Object.keys(o).forEach((prop) => {
           classList.push(
-            prop !== 'span' ? `om-col-${size}-${prop}-${o.prop}` : `om-col-${o[prop]}`
+            prop !== 'span' ? `om-col-${size}-${prop}-${o[prop]}` : `om-col-${size}-${o[prop]}`
           )
         })
       }
