@@ -2,6 +2,8 @@
 
 > Omelete Vue 2.x components
 
+https://travis-ci.org/OmeletRice/Omelet-components.svg?branch=master
+
 ## Build Setup
 
 ``` bash
@@ -14,6 +16,9 @@ npm run dev
 # build for production with minification
 npm run build
 
+#build for theme
+npm run build:theme
+
 # build for production and view the bundle analyzer report
 npm run build --report
 
@@ -23,5 +28,3 @@ npm run unit
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
