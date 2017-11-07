@@ -2,7 +2,7 @@
 
 > Omelete Vue 2.x components
 
-https://travis-ci.org/OmeletRice/Omelet-components.svg?branch=master
+[![Build Status](https://travis-ci.org/OmeletRice/Omelet-components.svg?branch=master)](https://travis-ci.org/OmeletRice/Omelet-components)
 
 ## Build Setup
 
