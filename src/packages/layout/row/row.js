@@ -12,27 +12,21 @@ export default {
     gutter: Number
   },
 
-  computed: {
-    style() {
-      const ret = {}
-
-      if (this.gutter) {
-        ret.marginLeft = `-${this.gutter / 2}px`
-        ret.marginRight = `-${this.gutter / 2}px`
-      }
-
-      return ret
-    }
-  },
-
   render(h) {
+    let style = {}
+
+    if (this.gutter) {
+      style.marginLeft = `-${this.gutter / 2}px`
+      style.marginRight = `-${this.gutter / 2}px`
+    }
+
     return h(
       this.tag,
       {
         class: [
           'om-row'
         ],
-        style: this.style
+        style: style
       },
       this.$slots.default
     )
