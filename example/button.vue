@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Button</h2>
-    <h3>Prop: type size icon nativeType loading disabled plain autofocus</h3>
+    <h3>Props: type size icon nativeType loading disabled plain autofocus customClass</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>type:</span>
@@ -36,9 +36,14 @@
     </div>
     <div class="prop-style-preview">
       <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index</om-button>
+    </div>
+    <h2>Button-Group</h2>
+    <h3>Props: customClass</h3>
+    <div class="prop-style-preview">
       <om-button-group>
-        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index</om-button>
-        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index</om-button>      
+        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index-1</om-button>
+        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index-2</om-button>      
+        <om-button :type="type" :size="size" :native-type="nativeType" :disabled="disabled" :plain="plain">index-3</om-button>      
       </om-button-group>
     </div>
   </div>
@@ -48,7 +53,7 @@
 export default {
   data() {
     return {
-      types: ['primary', 'success', 'warning', 'danger', 'info', 'text'],
+      types: ['none', 'primary', 'success', 'warning', 'danger', 'info', 'text'],
       sizes: ['medium', 'normal', 'small', 'mini'],
       nativeTypes: ['submit', 'button', 'reset'],
       disableds: [true, false],

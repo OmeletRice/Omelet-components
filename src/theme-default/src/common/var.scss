@@ -14,21 +14,21 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1);
 $--color-white: #fff;
 $--color-black: #000;
 
-$--color-primary: #409EFF !default;
-$--color-primary-light-1: mix($--color-white, $--color-primary, 10%); /* 53a8ff */
-$--color-primary-light-2: mix($--color-white, $--color-primary, 20%); /* 66b1ff */
-$--color-primary-light-3: mix($--color-white, $--color-primary, 30%); /* 79bbff */
-$--color-primary-light-4: mix($--color-white, $--color-primary, 40%); /* 8cc5ff */
-$--color-primary-light-5: mix($--color-white, $--color-primary, 50%); /* a0cfff */
-$--color-primary-light-6: mix($--color-white, $--color-primary, 60%); /* b3d8ff */
-$--color-primary-light-7: mix($--color-white, $--color-primary, 70%); /* c6e2ff */
-$--color-primary-light-8: mix($--color-white, $--color-primary, 80%); /* d9ecff */
-$--color-primary-light-9: mix($--color-white, $--color-primary, 90%); /* ecf5ff */
+$--color-primary: #3498DB !default;
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%);
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%);
+$--color-primary-light-3: mix($--color-white, $--color-primary, 30%);
+$--color-primary-light-4: mix($--color-white, $--color-primary, 40%);
+$--color-primary-light-5: mix($--color-white, $--color-primary, 50%);
+$--color-primary-light-6: mix($--color-white, $--color-primary, 60%);
+$--color-primary-light-7: mix($--color-white, $--color-primary, 70%);
+$--color-primary-light-8: mix($--color-white, $--color-primary, 80%);
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%);
 
-$--color-success: #67c23a !default;
-$--color-warning: #eb9e05 !default;
-$--color-danger: #fa5555 !default;
-$--color-info: #878d99 !default;
+$--color-success: #1ABC9C !default;
+$--color-warning: #F1C40F !default;
+$--color-danger: #E74C3C !default;
+$--color-info: #BDC3C7 !default;
 
 $--color-success-light: mix($--color-white, $--color-success, 80%);
 $--color-warning-light: mix($--color-white, $--color-warning, 80%);

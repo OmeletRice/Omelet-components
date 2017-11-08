@@ -1,4 +1,8 @@
+// basic
 import Button from './button'
+import Color from './color'
+import Layout from './layout'
+
 import ColorPicker from './color-picker'
 import Dialog from './dialog'
 import Dropdown from './dropdown'
@@ -6,11 +10,11 @@ import Input from './input'
 import InputChangebox from './input-changebox'
 import InputNumber from './input-number'
 
-import Layout from './layout'
-
 const routers = [
-  { path: '/layout', component: Layout },
   { path: '/button', component: Button },
+  { path: '/layout', component: Layout },
+  { path: '/color', component: Color },
+
   { path: '/color-picker', component: ColorPicker },
   { path: '/dialog', component: Dialog },
   { path: '/dropdown', component: Dropdown },

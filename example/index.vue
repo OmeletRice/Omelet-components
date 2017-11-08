@@ -3,8 +3,10 @@
     <om-row>
       <om-col :span="4">
         <div class="components">
-          <router-link to="/layout">Layout</router-link>
           <router-link to="/button">button</router-link>
+          <router-link to="/color">Color</router-link>
+          <router-link to="/layout">Layout</router-link>
+
           <router-link to="/color-picker">color-picker</router-link>
           <router-link to="/dialog">Dialog</router-link>
           <router-link to="/dropdown">Dropdown</router-link>

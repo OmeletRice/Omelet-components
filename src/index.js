@@ -1,6 +1,4 @@
 
-import OmButton from './components/button/index.js'
-import OmButtonGroup from './components/button-group/index.js'
 // 第三方依赖
 // import OmColorPicker from './components/color-picker/index.js'
 // import OmCropper from './components/cropper/cropper'
@@ -41,10 +39,15 @@ import OmInputNumber from './components/input-number/index.js'
 // import OmMessageBox from './components/message-box/main.js'
 // import OmInfiniteLoading from './components/infinite-loading/infinite-loading'
 
+// basic layout
 import OmRow from './packages/layout/row'
 import OmCol from './packages/layout/col'
+import OmButton from './packages/button/index.js'
+import OmButtonGroup from './packages/button-group/index.js'
 
 const components = [
+  OmRow,
+  OmCol,
   OmButton,
   OmButtonGroup,
 
@@ -55,10 +58,7 @@ const components = [
   OmInput,
 
   OmInputChangebox,
-  OmInputNumber,
-
-  OmRow,
-  OmCol
+  OmInputNumber
 ]
 
 const install = function (Vue, opts = {}) {
@@ -83,6 +83,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = {
   version: '0.0.1',
   install,
+  OmRow,
+  OmCol,
   OmButton,
   OmButtonGroup,
 
@@ -93,8 +95,5 @@ module.exports = {
   OmInput,
 
   OmInputChangebox,
-  OmInputNumber,
-
-  OmRow,
-  OmCol
+  OmInputNumber
 }
