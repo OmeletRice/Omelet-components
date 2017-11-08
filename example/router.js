@@ -2,6 +2,8 @@
 import Button from './button'
 import Color from './color'
 import Layout from './layout'
+// form
+import Radio from './radio'
 
 import ColorPicker from './color-picker'
 import Dialog from './dialog'
@@ -12,8 +14,9 @@ import InputNumber from './input-number'
 
 const routers = [
   { path: '/button', component: Button },
-  { path: '/layout', component: Layout },
   { path: '/color', component: Color },
+  { path: '/layout', component: Layout },
+  { path: '/radio', component: Radio },
 
   { path: '/color-picker', component: ColorPicker },
   { path: '/dialog', component: Dialog },

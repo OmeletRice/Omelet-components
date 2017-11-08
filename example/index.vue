@@ -6,6 +6,7 @@
           <router-link to="/button">button</router-link>
           <router-link to="/color">Color</router-link>
           <router-link to="/layout">Layout</router-link>
+          <router-link to="/radio">Radio</router-link>
 
           <router-link to="/color-picker">color-picker</router-link>
           <router-link to="/dialog">Dialog</router-link>

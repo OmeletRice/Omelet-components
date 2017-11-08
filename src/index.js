@@ -42,14 +42,17 @@ import OmInputNumber from './components/input-number/index.js'
 // basic layout
 import OmRow from './packages/layout/row'
 import OmCol from './packages/layout/col'
-import OmButton from './packages/button/index.js'
-import OmButtonGroup from './packages/button-group/index.js'
+import OmButton from './packages/button'
+import OmButtonGroup from './packages/button-group'
+// form
+import OmRadio from './packages/radio'
 
 const components = [
   OmRow,
   OmCol,
   OmButton,
   OmButtonGroup,
+  OmRadio,
 
   OmDialog,
   OmDropdown,
@@ -87,6 +90,7 @@ module.exports = {
   OmCol,
   OmButton,
   OmButtonGroup,
+  OmRadio,
 
   OmDialog,
   OmDropdown,

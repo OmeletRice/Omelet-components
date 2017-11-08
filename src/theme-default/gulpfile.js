@@ -22,4 +22,9 @@ gulp.task('copyfont', function() {
     .pipe(gulp.dest('./lib/fonts'));
 });
 
+var watcher = gulp.watch(['./src/*.scss', './src/*/*.scss'], ['compile']);
+watcher.on('change', function(event) {
+  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+});
+
 gulp.task('build', ['compile', 'copyfont']);
