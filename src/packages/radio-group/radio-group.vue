@@ -15,6 +15,8 @@ export default {
 
     size: String,
 
+    vertical: Boolean,
+
     disabled: Boolean
   },
 

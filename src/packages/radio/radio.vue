@@ -1,8 +1,9 @@
 <template>
   <label :class="[
     'om-radio',
-    { 'is-disabled' : !!isDisabled },
-    { 'is-checked' : checked },
+    { 'is-disabled': !!isDisabled },
+    { 'is-checked': checked },
+    { 'is-vertical': isVertical },
     customClass]"
     role="radio"
     :aria-checked="model === label"
@@ -89,6 +90,9 @@ export default {
     },
     isDisabled() {
       return this.isGroup ? this._radioGroup.disabled : this.disabled
+    },
+    isVertical() {
+      return this.isGroup ? !!this._radioGroup.vertical : false
     },
     tabIndex() {
       return !this.isDisabled ? (this.isGroup ? (this.checked ? 0 : -1) : 0) : -1

@@ -34,16 +34,22 @@
           <input type="radio" name="disabled" :value="s" @click.stop="handle(s, 'disabled1')"> {{ s }}
         </label>
       </div>
+      <div class="porp-style-selete-item">
+        <span>vertical:</span>
+        <label v-for="s in verticals" :key="s">
+          <input type="radio" name="vertical" :value="s" @click.stop="handle(s, 'vertical')"> {{ s }}
+        </label>
+      </div>
     </div>
     <div class="prop-style-preview">
-      <om-radio-group v-model="value" :disabled="disabled1">
+      <om-radio-group v-model="value" :disabled="disabled1" :vertical="vertical">
         <om-radio :label="1">index1</om-radio>
         <om-radio :label="2">index2</om-radio>
       </om-radio-group>
     </div>
     <!--  -->
     <h2>Radio-Button</h2>
-    <h3>Props: disabled customClass</h3>
+    <h3>Props: disabled vertical customClass</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>disabled:</span>
@@ -75,6 +81,8 @@ export default {
       value: 2,
       sizes: ['medium', 'normal', 'small', 'mini'],
       size: '',
+      verticals: [true, false],
+      vertical: false,
       disableds: [true, false],
       disabled: false,
       disabled1: false,

@@ -82,14 +82,15 @@
     cursor: pointer;
     display: inline-block;
     box-sizing: border-box;
+    transition: .3s;
 
     &:hover {
       border-color: $--radio-input-border-color-hover;
     }
 
     &::after {
-      width: 4px;
-      height: 4px;
+      width: 6px;
+      height: 6px;
       border-radius: $--radio-input-border-radius;
       background-color: $--color-white;
       content: '';
@@ -97,7 +98,7 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(0);
-      transition: transform .15s cubic-bezier(.71, -.46, .88, .6)
+      transition: transform .2s cubic-bezier(.71, -.46, .88, .6);
     }
   }
 
@@ -131,5 +132,16 @@
 
   & + .om-radio {
     margin-left: 30px
+  }
+
+  @include when(vertical) {
+    &.om-radio {
+      display: block;
+    }
+
+    &.om-radio + .om-radio {
+      margin-left: 0px;
+      margin-top: 10px;
+    }
   }
 }
