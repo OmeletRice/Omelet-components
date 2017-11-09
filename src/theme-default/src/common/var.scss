@@ -146,7 +146,31 @@ $--button-active-shade-percent: 10%;
 
 /* Radio
 -------------------------- */
-$--radio-background-color: none;
+$--radio-color: $--color-text-regular;
+$--radio-font-size: 14px !default;
+$--radio-font-weight: $--font-weight-primary !default;
+
+$--radio-input-height: 14px !default;
+$--radio-input-width: 14px !default;
+$--radio-input-border-radius: $--border-radius-circle !default;
+$--radio-input-fill: $--color-white !default;
+
+$--radio-input-border: $--border-base !default;
+$--radio-input-border-color: $--border-color-base !default;
+$--radio-input-border-color-hover: $--color-primary !default;
+
+$--radio-checked-text-color: $--color-primary !default;
+$--radio-checked-input-border-color: $--color-primary !default;
+$--radio-checked-input-fill: $--color-white !default;
+$--radio-checked-icon-color: $--color-primary !default;
+
+$--radio-disabled-input-border-color: $--disabled-border-base !default;
+$--radio-disabled-input-fill: $--disabled-fill-base !default;
+$--radio-disabled-icon-color: $--disabled-fill-base !default;
+
+$--radio-disabled-checked-input-border-color: $--disabled-border-base !default;
+$--radio-disabled-checked-input-fill: $--disabled-fill-base !default;
+$--radio-disabled-checked-icon-color: $--color-text-placeholder !default;
 
 /* Dialog
 -------------------------- */
