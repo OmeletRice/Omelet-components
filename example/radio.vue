@@ -26,7 +26,7 @@
     </div>
     <!--  -->
     <h2>Radio-Group</h2>
-    <h3>Props: disabled customClass</h3>
+    <h3>Props: size disabled customClass</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>disabled:</span>
@@ -51,9 +51,15 @@
           <input type="radio" name="disabled" :value="s" @click.stop="handle(s, 'disabled2')"> {{ s }}
         </label>
       </div>
+      <div class="porp-style-selete-item">
+        <span>size:</span>
+        <label v-for="s in sizes" :key="s">
+          <input type="radio" name="size" :value="s" @click.stop="handle(s, 'size')"> {{ s }}
+        </label>
+      </div>
     </div>
     <div class="prop-style-preview">
-      <om-radio-group v-model="value" :disabled="disabled2">
+      <om-radio-group v-model="value" :disabled="disabled2" :size="size">
         <om-radio-button :label="1">index1</om-radio-button>
         <om-radio-button :label="2">index2</om-radio-button>
         <om-radio-button :label="3">index3</om-radio-button>
@@ -67,6 +73,8 @@ export default {
   data() {
     return {
       value: 2,
+      sizes: ['medium', 'normal', 'small', 'mini'],
+      size: '',
       disableds: [true, false],
       disabled: false,
       disabled1: false,

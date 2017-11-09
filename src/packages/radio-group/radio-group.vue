@@ -13,6 +13,8 @@ export default {
   props: {
     value: {},
 
+    size: String,
+
     disabled: Boolean
   },
 

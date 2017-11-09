@@ -3,6 +3,7 @@
     'om-radio-button',
     { 'is-disabled': !!isDisabled },
     { 'is-checked': checked },
+    buttonSize ? 'om-radio-button--' + buttonSize:'',
     customClass]"
     role="radio"
     :aria-checked="model === label"
@@ -78,6 +79,13 @@ export default {
     },
     tabIndex() {
       return !this.isDisabled ? (this.isGroup ? (this.checked ? 0 : -1) : 0) : -1
+    },
+    buttonSize() {
+      if (this._radioGroup) {
+        const size = this._radioGroup.size
+        return size || null
+      }
+      return null
     }
   }
 }
