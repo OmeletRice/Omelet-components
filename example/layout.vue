@@ -75,5 +75,6 @@ export default {
   border: 1px solid #d1d1d1;
   border-radius: 6px;
   height: 20px;
+  text-align: center;
 }
 </style>

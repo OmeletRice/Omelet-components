@@ -1,7 +1,7 @@
 <template>
   <div>
     <om-row>
-      <om-col :span="4">
+      <om-col :span="4" :pull="1">
         <div class="components">
           <router-link to="/button">button</router-link>
           <router-link to="/color">Color</router-link>

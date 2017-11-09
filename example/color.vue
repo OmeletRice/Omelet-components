@@ -1,5 +1,6 @@
 <template>
   <div class="om-color-box">
+    <h2>Color</h2>
     <div class="box-item-color"
       v-for="c in colors" :key="c.hex"
       :style="{ backgroundColor: c.hex }">
@@ -50,8 +51,11 @@ export default {
 <style>
 .box-item-color {
   width: 230px;
-  height: 100px;
+  height: 70px;
   margin: 20px;
-  display: inline-block
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px
 }
 </style>

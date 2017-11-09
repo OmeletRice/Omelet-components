@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       types: ['none', 'primary', 'success', 'warning', 'danger', 'info', 'text'],
-      sizes: ['medium', 'normal', 'small', 'mini'],
+      sizes: ['normal', 'medium', 'small', 'mini'],
       nativeTypes: ['submit', 'button', 'reset'],
       disableds: [true, false],
       plains: [true, false],

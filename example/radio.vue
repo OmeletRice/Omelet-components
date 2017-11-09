@@ -11,18 +11,9 @@
       </div>
     </div>
     <div class="prop-style-preview">
-      <om-radio 
-        v-model="value"
-        :label="1"
-        :disabled="disabled">
-          index1
-      </om-radio>
-      <om-radio 
-        v-model="value"
-        :label="2"
-        :disabled="disabled">
-          index2
-      </om-radio>
+      <om-radio v-model="value" :label="1" :disabled="disabled">index1</om-radio>
+      <om-radio v-model="value" :label="2" :disabled="disabled">index2</om-radio>
+      <om-radio v-model="value" :label="3" :disabled="disabled">index3</om-radio>
     </div>
     <!--  -->
     <h2>Radio-Group</h2>
@@ -45,6 +36,7 @@
       <om-radio-group v-model="value" :disabled="disabled1" :vertical="vertical">
         <om-radio :label="1">index1</om-radio>
         <om-radio :label="2">index2</om-radio>
+        <om-radio :label="3">index3</om-radio>
       </om-radio-group>
     </div>
     <!--  -->
@@ -79,7 +71,7 @@ export default {
   data() {
     return {
       value: 2,
-      sizes: ['medium', 'normal', 'small', 'mini'],
+      sizes: ['normal', 'medium', 'small', 'mini'],
       size: '',
       verticals: [true, false],
       vertical: false,
