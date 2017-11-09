@@ -10,8 +10,6 @@ import OmDropdownItem from './components/dropdown-item/index.js'
 import OmInput from './components/input/index.js'
 import OmInputChangebox from './components/input-changebox/input-changebox'
 import OmInputNumber from './components/input-number/index.js'
-// import OmRadioButton from './components/radio/radio-button'
-// import OmRadioGroup from './components/radio/radio-group'
 // import OmScrollBar from './components/scrollbar/main'
 // import OmSelect from './components/select/select'
 // import OmSelectDropdown from './components/select/select-dropdown'
@@ -46,6 +44,8 @@ import OmButton from './packages/button'
 import OmButtonGroup from './packages/button-group'
 // form
 import OmRadio from './packages/radio'
+import OmRadioGroup from './packages/radio-group'
+import OmRadioButton from './packages/radio-button'
 
 const components = [
   OmRow,
@@ -53,6 +53,8 @@ const components = [
   OmButton,
   OmButtonGroup,
   OmRadio,
+  OmRadioGroup,
+  OmRadioButton,
 
   OmDialog,
   OmDropdown,
@@ -91,6 +93,8 @@ module.exports = {
   OmButton,
   OmButtonGroup,
   OmRadio,
+  OmRadioGroup,
+  OmRadioButton,
 
   OmDialog,
   OmDropdown,

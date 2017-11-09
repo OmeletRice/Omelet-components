@@ -172,6 +172,12 @@ $--radio-disabled-checked-input-border-color: $--disabled-border-base !default;
 $--radio-disabled-checked-input-fill: $--disabled-fill-base !default;
 $--radio-disabled-checked-icon-color: $--color-text-placeholder !default;
 
+$--radio-button-checked-color: $--color-white !default;
+$--radio-button-checked-backgound-color: $--color-primary !default;
+$--radio-button-disabled-checked-backgound-color: $--disabled-fill-base !default;
+$--radio-button-checked-border-color: $--color-primary !default;
+
+
 /* Dialog
 -------------------------- */
 $--dialog-background-color: $--color-primary-light-4;

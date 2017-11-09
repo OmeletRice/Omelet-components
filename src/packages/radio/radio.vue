@@ -1,16 +1,18 @@
 <template>
   <label :class="[
     'om-radio',
-    { 'is-disabled' : !!disabled },
-    { 'is-checked' : checked }]"
+    { 'is-disabled' : !!isDisabled },
+    { 'is-checked' : checked },
+    customClass]"
     role="radio"
     :aria-checked="model === label"
-    :aria-disabled="disabled"
+    :aria-disabled="isDisabled"
+    :tabindex="tabIndex"
     @keydown.space.stop.prevent="model = label"
   >
     <span :class="[
       'om-radio__input',
-      { 'is-disabled' : !!disabled },
+      { 'is-disabled' : !!isDisabled },
       { 'is-checked' : checked }
     ]">
       <span class="om-radio__inner"></span>
@@ -20,7 +22,7 @@
         :name="name"
         v-model="model"
         tabindex="-1"
-        :disabled="disabled"
+        :disabled="isDisabled"
         @change="handleChange">
     </span>
     <span class="om-radio__label">
@@ -46,14 +48,9 @@ export default {
       default: false
     },
 
-    border: {
-      type: Boolean,
-      default: false
-    },
+    name: String,
 
-    size: String,
-
-    name: String
+    customClass: String
   },
 
   data() {
@@ -66,7 +63,7 @@ export default {
     isGroup() {
       let parent = this.$parent
       while (parent) {
-        if (parent.$options.componentsName !== 'OmRadioGroup') {
+        if (parent.$options.componentName !== 'OmRadioGroup') {
           parent = parent.$parent
         } else {
           this._radioGroup = parent
@@ -77,22 +74,32 @@ export default {
     },
     model: {
       get() {
-        return this._radioGroup ? this._radioGroup.value : this.value
+        return this.isGroup ? this._radioGroup.value : this.value
       },
       set(val) {
-        this.$emit('input', val)
+        if (this.isGroup) {
+          this._radioGroup.$emit('input', val)
+        } else {
+          this.$emit('input', val)
+        }
       }
     },
     checked() {
       return this.label === this.model
+    },
+    isDisabled() {
+      return this.isGroup ? this._radioGroup.disabled : this.disabled
+    },
+    tabIndex() {
+      return !this.isDisabled ? (this.isGroup ? (this.checked ? 0 : -1) : 0) : -1
     }
   },
 
   methods: {
     handleChange() {
-      // this.$nextTick(() => {
-      //   this.$emit('change', this.model)
-      // })
+      this.$nextTick(() => {
+        this.$emit('change', this.model)
+      })
     }
   }
 }

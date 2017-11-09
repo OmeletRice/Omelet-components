@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Radio</h2>
-    <h3>Props: type size icon nativeType loading disabled plain autofocus customClass</h3>
+    <h3>Props: label value disabled name customClass</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>disabled:</span>
@@ -24,6 +24,41 @@
           index2
       </om-radio>
     </div>
+    <!--  -->
+    <h2>Radio-Group</h2>
+    <h3>Props: disabled customClass</h3>
+    <div class="porp-style-select">
+      <div class="porp-style-selete-item">
+        <span>disabled:</span>
+        <label v-for="s in disableds" :key="s">
+          <input type="radio" name="disabled" :value="s" @click.stop="handle(s, 'disabled1')"> {{ s }}
+        </label>
+      </div>
+    </div>
+    <div class="prop-style-preview">
+      <om-radio-group v-model="value" :disabled="disabled1">
+        <om-radio :label="1">index1</om-radio>
+        <om-radio :label="2">index2</om-radio>
+      </om-radio-group>
+    </div>
+    <!--  -->
+    <h2>Radio-Button</h2>
+    <h3>Props: disabled customClass</h3>
+    <div class="porp-style-select">
+      <div class="porp-style-selete-item">
+        <span>disabled:</span>
+        <label v-for="s in disableds" :key="s">
+          <input type="radio" name="disabled" :value="s" @click.stop="handle(s, 'disabled2')"> {{ s }}
+        </label>
+      </div>
+    </div>
+    <div class="prop-style-preview">
+      <om-radio-group v-model="value" :disabled="disabled2">
+        <om-radio-button :label="1">index1</om-radio-button>
+        <om-radio-button :label="2">index2</om-radio-button>
+        <om-radio-button :label="3">index3</om-radio-button>
+      </om-radio-group>
+    </div>
   </div>
 </template>
 
@@ -33,7 +68,9 @@ export default {
     return {
       value: 2,
       disableds: [true, false],
-      disabled: false
+      disabled: false,
+      disabled1: false,
+      disabled2: false
     }
   },
 
