@@ -46,6 +46,8 @@ import OmButtonGroup from './packages/button-group'
 import OmRadio from './packages/radio'
 import OmRadioGroup from './packages/radio-group'
 import OmRadioButton from './packages/radio-button'
+import OmCheckbox from './packages/checkbox'
+import OmCheckboxGroup from './packages/checkbox-group'
 
 const components = [
   OmRow,
@@ -55,6 +57,8 @@ const components = [
   OmRadio,
   OmRadioGroup,
   OmRadioButton,
+  OmCheckbox,
+  OmCheckboxGroup,
 
   OmDialog,
   OmDropdown,
@@ -95,6 +99,8 @@ module.exports = {
   OmRadio,
   OmRadioGroup,
   OmRadioButton,
+  OmCheckbox,
+  OmCheckboxGroup,
 
   OmDialog,
   OmDropdown,

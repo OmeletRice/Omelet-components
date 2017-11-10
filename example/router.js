@@ -4,6 +4,7 @@ import Color from './color'
 import Layout from './layout'
 // form
 import Radio from './radio'
+import Checkbox from './checkbox'
 
 import ColorPicker from './color-picker'
 import Dialog from './dialog'
@@ -17,6 +18,7 @@ const routers = [
   { path: '/color', component: Color },
   { path: '/layout', component: Layout },
   { path: '/radio', component: Radio },
+  { path: '/checkbox', component: Checkbox },
 
   { path: '/color-picker', component: ColorPicker },
   { path: '/dialog', component: Dialog },

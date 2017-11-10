@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Radio</h2>
+    <h3>有没有可能通过设置值，动态切换radio的选中</h3>
     <h3>Props: label value disabled name customClass</h3>
     <h3>Event: change</h3>
     <div class="porp-style-select">
