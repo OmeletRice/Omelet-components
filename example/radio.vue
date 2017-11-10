@@ -2,6 +2,7 @@
   <div>
     <h2>Radio</h2>
     <h3>Props: label value disabled name customClass</h3>
+    <h3>Event: change</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>disabled:</span>
@@ -17,7 +18,8 @@
     </div>
     <!--  -->
     <h2>Radio-Group</h2>
-    <h3>Props: size disabled customClass</h3>
+    <h3>Props: size disabled vertical customClass</h3>
+    <h3>Event: change</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
         <span>disabled:</span>

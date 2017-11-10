@@ -103,6 +103,9 @@ export default {
     handleChange() {
       this.$nextTick(() => {
         this.$emit('change', this.model)
+        if (this.isGroup) {
+          this._radioGroup.$emit('change', this.model)
+        }
       })
     }
   }
