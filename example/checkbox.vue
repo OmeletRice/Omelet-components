@@ -47,12 +47,22 @@
     <div class="prop-style-preview">
       <om-checkbox-group v-model="gvalue0" @change="handleChangeg0">
         <om-checkbox :label="1">index-1</om-checkbox>
+        <om-checkbox :label="2" disabled>index-2</om-checkbox>
+        <om-checkbox :label="3">index-3</om-checkbox>
+        <om-checkbox :label="4" disabled>index-4</om-checkbox>
+      </om-checkbox-group>
+      <p>{{gvalue0}}</p>
+      min = 2, max = 4
+      <om-checkbox-group v-model="gvalue0" :min="2" :max="4" @change="handleChangeg0">
+        <om-checkbox :label="1">index-1</om-checkbox>
         <om-checkbox :label="2">index-2</om-checkbox>
         <om-checkbox :label="3">index-3</om-checkbox>
+        <om-checkbox :label="4">index-4</om-checkbox>
+        <om-checkbox :label="5">index-5</om-checkbox>
+        <om-checkbox :label="6">index-6</om-checkbox>
       </om-checkbox-group>
-      <p>{{gvalue_0}}</p>
+      <p>{{gvalue0}}</p>
     </div>
-
   </div>
 </template>
 
@@ -67,8 +77,7 @@ export default {
       value2: 22,
       value_2: '',
 
-      gvalue0: [1, 2],
-      gvalue_0: ''
+      gvalue0: [1, 2]
     }
   },
 
@@ -86,7 +95,7 @@ export default {
       this.value_2 = val
     },
     handleChangeg0(val) {
-      this.gvalue_0 = val
+      console.log(val)
     }
   }
 }

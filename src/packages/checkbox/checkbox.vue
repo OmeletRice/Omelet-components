@@ -1,10 +1,20 @@
 <template>
   <label :class="[
     'om-checkbox',
-    { 'is-checked': isChecked }]"
+    { 'is-disabled': isDisabled },
+    { 'is-indeterminate': indeterminate },
+    { 'is-checked': isChecked },
+    customClass]"
     role="checkbox"
+    :id="id"
+    :aria-checked="indeterminate ? 'mixed' : isChecked"
+    :aria-disabled="isDisabled"
   >
-    <span class="om-checkbox__input">
+    <span :class="[
+      'om-checkbox__input',
+      { 'is-disabled': isDisabled },
+      { 'is-indeterminate': indeterminate },
+      { 'is-checked': isChecked }]">
       <span class="om-checkbox__inner"></span>
       <input class="om-checkbox__origin"
         type="checkbox"
@@ -48,10 +58,16 @@ export default {
 
     checked: Boolean,
 
+    customClass: String,
+
     indeterminate: {
       type: Boolean,
       default: false
-    }
+    },
+
+    id: String,
+
+    controls: String
   },
 
   data() {
@@ -100,7 +116,17 @@ export default {
       },
       set(val) {
         if (this.isGroup) {
-
+          const parentValues = this._checkboxGroup.value
+          const lt = parentValues.indexOf(this.label)
+          let newVal = []
+          const { min, max } = this._checkboxGroup
+          parentValues.forEach((v, i) => {
+            if (lt !== i) newVal.push(v)
+          })
+          if ((lt === -1 && !(max !== undefined && parentValues.length + 1 > max)) || (min !== undefined && parentValues.length - 1 < min)) {
+            newVal.push(this.label)
+          }
+          this._checkboxGroup.$emit('input', newVal)
         } else {
           this.$emit('input', val)
           if (this.isCrVal) {
@@ -119,19 +145,25 @@ export default {
       return this.model
     },
     isDisabled() {
-
+      return this.isGroup ? this._checkboxGroup.disabled || this.disabled : this.disabled
     }
   },
 
   methods: {
     handleChange() {
       if (this.isGroup) {
-        if (this._checkboxGroup.addCheck) {
-          // this._checkboxGroup.addCheck(this.selfModel)
-        }
+        this.$nextTick(() => {
+          this._checkboxGroup.$emit('change', this._checkboxGroup.value)
+        })
       } else {
         this.$emit('change', this.selfModel)
       }
+    }
+  },
+
+  mounted() {
+    if (this.indeterminate) {
+      this.$el.setAttribute('aria-controls', this.controls)
     }
   }
 }

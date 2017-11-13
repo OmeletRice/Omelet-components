@@ -1,5 +1,5 @@
 <template>
-  <div class="om-checkbox-group">
+  <div class="om-checkbox-group" :class="customClass" aria-label="checkbox-group">
     <slot></slot>
   </div>  
 </template>
@@ -19,7 +19,9 @@ export default {
 
     min: Number,
 
-    max: Number
+    max: Number,
+
+    customClass: String
   },
 
   data() {
@@ -29,11 +31,8 @@ export default {
   },
 
   methods: {
-    handleChange() {
-      this.$emit('change', this.activeValue)
-    },
-    handleAdd(item) {
-      console.log(item)
+    handleChange(val) {
+      this.$emit('change', val)
     }
   }
 }
