@@ -169,21 +169,23 @@ describe('Checkbox Group', () => {
       }
     }, true)
     
+    expect(vm.value.length).to.equal(2)
     vm.$refs.c2.$el.click()
-    vm.$nextTick(() => {
-      expect(vm.value.indexOf(2) !== -1).to.be.true
-      vm.$refs.c3.$el.click()
+    setTimeout(() => {
       vm.$nextTick(() => {
         expect(vm.value.indexOf(2) !== -1).to.be.true
-        expect(vm.value.indexOf(3) !== -1).to.be.true
-        vm.$refs.c4.$el.click()
+        vm.$refs.c3.$el.click()
         vm.$nextTick(() => {
-          expect(vm.value.indexOf(4) !== -1).to.be.false
-          done()
+          expect(vm.value.indexOf(2) !== -1).to.be.true
+          expect(vm.value.indexOf(3) !== -1).to.be.true
+          vm.$refs.c4.$el.click()
+          vm.$nextTick(() => {
+            expect(vm.value.indexOf(4) !== -1).to.be.false
+            done()
+          })
         })
       })
-
-    })
+    }, 10)
   })
 
   it('props:disabled', () => {
