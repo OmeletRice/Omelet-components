@@ -169,7 +169,6 @@ describe('Checkbox Group', () => {
       }
     }, true)
     
-    expect(vm.value.length === 2).to.be.true
     vm.$refs.c2.$el.click()
     vm.$nextTick(() => {
       expect(vm.value.indexOf(2) !== -1).to.be.true
