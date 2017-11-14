@@ -171,7 +171,7 @@
 
   @include e((append, prepend)) {
     background-color: $--background-color-base;
-    color: $--color-info;
+    color: $--input-group-color;
     vertical-align: middle;
     display: table-cell;
     position: relative;

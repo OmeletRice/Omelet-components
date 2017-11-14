@@ -2,10 +2,10 @@
   <div :class="['om-input',
     size ? 'om-input__' + size : '',
     { 'is-disabled': disabled },
-    { 'om-input-group': prepend || append },
-    { 'om-input-group--prepend': prepend },
-    { 'om-input-group--append': append }]">
-    <div class="om-input-group__prepend" v-if="prepend">
+    { 'om-input-group': !!$slots.prepend || !!$slots.append },
+    { 'om-input-group--prepend': !!$slots.prepend },
+    { 'om-input-group--append': !!$slots.append }]">
+    <div class="om-input-group__prepend" v-if="!!$slots.prepend">
       <slot name="prepend"></slot>
     </div>
 
@@ -20,17 +20,17 @@
       @change="handleChange"
       :aria-label="label"/>
 
-    <span class="om-input__prefix" v-if="prefix || !!prefixIcon">
+    <span class="om-input__prefix" v-if="!!$slots.prefix || !!prefixIcon">
       <slot name="prefix"></slot>
       <i :class="['om-input__icon', prefixIcon]" v-if="prefixIcon"></i>
     </span>
 
-    <span class="om-input__suffix" v-if="suffix || !!suffixIcon">
+    <span class="om-input__suffix" v-if="!!$slots.suffix || !!suffixIcon">
       <slot name="suffix"></slot>
       <i :class="['om-input__icon', suffixIcon]" v-if="suffixIcon"></i>
     </span>
 
-    <div class="om-input-group__append" v-if="append">
+    <div class="om-input-group__append" v-if="!!$slots.append">
       <slot name="append"></slot>
     </div>
   </div>
@@ -43,26 +43,9 @@ export default {
   componentName: 'OmInput',
 
   props: {
-    prepend: {
-      type: Boolean,
-      default: false
-    },
-    prefix: {
-      type: Boolean,
-      default: false
-    },
     prefixIcon: String,
-
-    suffix: {
-      type: Boolean,
-      default: false
-    },
     suffixIcon: String,
 
-    append: {
-      type: Boolean,
-      default: false
-    },
     // input
     autoComplete: Boolean,
     label: String,
@@ -74,6 +57,7 @@ export default {
     minlength: Number,
     readonly: Boolean,
     autofocus: Boolean,
+    placeholder: [String, Number],
 
     // m
     size: String,

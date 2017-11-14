@@ -1,18 +1,23 @@
 <template>
   <div>
     <h2>Input</h2>
+    <h3>Props: size disabled autoComplete label value name maxlength minlength readonly autofocus size disabled form id</h3>
+    <h3>Slots: prepend [ prefix prefixIcon ] [ suffix suffixIcon ] append</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
 
       </div>
     </div>
     <div class="prop-style-preview">
+      <h4>prepend & append</h4>
       <om-input :value="value">
-        <template slot="prepend">Http://</template>
+        <div slot="prepend">Http://</div>
+        <div slot="append">.com</div>
       </om-input>
-      <om-input v-model="value">
-        <template slot="prepend">Http://xxx</template>
-      </om-input>
+      <h4>prefixIcon = 'om-icon-search'</h4>
+      <om-input :prefix-icon="'om-icon-search'"></om-input>
+      <h4>suffixIcon = 'om-icon-search'</h4>
+      <om-input :suffix-icon="'om-icon-search'"></om-input>
     </div>
   </div>
 </template>

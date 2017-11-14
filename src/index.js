@@ -7,7 +7,6 @@ import OmDialog from './components/dialog/index.js'
 import OmDropdown from './components/dropdown/index.js'
 import OmDropdownMenu from './components/dropdown-menu/index.js'
 import OmDropdownItem from './components/dropdown-item/index.js'
-import OmInput from './components/input/index.js'
 import OmInputChangebox from './components/input-changebox/input-changebox'
 import OmInputNumber from './components/input-number/index.js'
 // import OmScrollBar from './components/scrollbar/main'
@@ -48,6 +47,7 @@ import OmRadioGroup from './packages/radio-group'
 import OmRadioButton from './packages/radio-button'
 import OmCheckbox from './packages/checkbox'
 import OmCheckboxGroup from './packages/checkbox-group'
+import OmInput from './packages/input'
 
 const components = [
   OmRow,
