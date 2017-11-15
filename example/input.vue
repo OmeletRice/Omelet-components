@@ -5,19 +5,22 @@
     <h3>Slots: prepend [ prefix prefixIcon ] [ suffix suffixIcon ] append</h3>
     <div class="porp-style-select">
       <div class="porp-style-selete-item">
-
+        <span>size:</span>
+        <label v-for="s in sizes" :key="s">
+          <input type="radio" name="size" :value="s" @click.stop="handle(s, 'size')"> {{ s }}
+        </label>
       </div>
     </div>
     <div class="prop-style-preview">
       <h4>prepend & append</h4>
-      <om-input :value="value">
+      <om-input :value="value" :size="size">
         <div slot="prepend">Http://</div>
         <div slot="append">.com</div>
       </om-input>
       <h4>prefixIcon = 'om-icon-search'</h4>
-      <om-input :prefix-icon="'om-icon-search'"></om-input>
+      <om-input :prefix-icon="'om-icon-search'" :size="size"></om-input>
       <h4>suffixIcon = 'om-icon-search'</h4>
-      <om-input :suffix-icon="'om-icon-search'"></om-input>
+      <om-input :suffix-icon="'om-icon-search'" :size="size"></om-input>
     </div>
   </div>
 </template>
@@ -26,7 +29,9 @@
 export default {
   data() {
     return {
-      value: 'laksks'
+      value: 'value',
+      sizes: ['normal', 'medium', 'small', 'mini'],
+      size: ''
     }
   },
 

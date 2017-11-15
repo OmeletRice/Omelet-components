@@ -1,10 +1,12 @@
 <template>
   <div :class="['om-input',
-    size ? 'om-input__' + size : '',
+    size ? 'om-input--' + size : '',
     { 'is-disabled': disabled },
     { 'om-input-group': !!$slots.prepend || !!$slots.append },
     { 'om-input-group--prepend': !!$slots.prepend },
-    { 'om-input-group--append': !!$slots.append }]">
+    { 'om-input-group--append': !!$slots.append },
+    { 'om-input--prefix': !!$slots.prefix || prefixIcon },
+    { 'om-input--suffix': !!$slots.suffix || suffixIcon }]">
     <div class="om-input-group__prepend" v-if="!!$slots.prepend">
       <slot name="prepend"></slot>
     </div>
@@ -18,7 +20,7 @@
       @focus="handleFocus"
       @blur="handleBlur"
       @change="handleChange"
-      :aria-label="label"/>
+      :aria-label="label">
 
     <span class="om-input__prefix" v-if="!!$slots.prefix || !!prefixIcon">
       <slot name="prefix"></slot>
@@ -47,7 +49,10 @@ export default {
     suffixIcon: String,
 
     // input
-    autoComplete: Boolean,
+    autoComplete: {
+      type: String,
+      default: 'off'
+    },
     label: String,
     value: [String, Number],
     name: String,

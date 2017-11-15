@@ -48,6 +48,7 @@ import OmRadioButton from './packages/radio-button'
 import OmCheckbox from './packages/checkbox'
 import OmCheckboxGroup from './packages/checkbox-group'
 import OmInput from './packages/input'
+import OmTextarea from './packages/textarea'
 
 const components = [
   OmRow,
@@ -59,12 +60,13 @@ const components = [
   OmRadioButton,
   OmCheckbox,
   OmCheckboxGroup,
+  OmInput,
+  OmTextarea,
 
   OmDialog,
   OmDropdown,
   OmDropdownMenu,
   OmDropdownItem,
-  OmInput,
 
   OmInputChangebox,
   OmInputNumber
@@ -101,12 +103,13 @@ module.exports = {
   OmRadioButton,
   OmCheckbox,
   OmCheckboxGroup,
+  OmInput,
+  OmTextarea,
 
   OmDialog,
   OmDropdown,
   OmDropdownMenu,
   OmDropdownItem,
-  OmInput,
 
   OmInputChangebox,
   OmInputNumber
