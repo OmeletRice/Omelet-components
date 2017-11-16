@@ -10,7 +10,7 @@
       { 'is-active': decreaseAction }]"
       v-if="controls"
       v-repeat-click="decrease"
-      @mousedown="decreaseAction = true"
+      @mousedown="decreaseAction = minDisabled ? false : true"
       @mouseup="decreaseAction = false"
       @keydown.enter="decrease"
       role="button"
@@ -23,7 +23,7 @@
       { 'is-active': increaseAction }]"
       v-if="controls"
       v-repeat-click="increase"
-      @mousedown="increaseAction = true"
+      @mousedown="increaseAction = maxDisabled ? false : true"
       @mouseup="increaseAction = false"
       @keydown.enter="increase"
       role="button">
