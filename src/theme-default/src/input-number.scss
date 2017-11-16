@@ -39,6 +39,10 @@
       }
     }
 
+    &.is-active {
+      background-color: $--input-number-active-background-color;
+    }
+
     &.is-disabled {
       color: $--disabled-color-base;
       cursor: not-allowed;
@@ -70,7 +74,7 @@
   }
 
   @include m(medium) {
-    width: 200px;
+    width: 180px;
     line-height: #{$--input-medium-height - 2};
 
     @include e((increase, decrease)) {
@@ -138,6 +142,8 @@
     @include e((increase, decrease)) {
       height: auto;
       line-height: #{($--input-height - 2) / 2};
+      transition: all .3s;
+      z-index: 2;
 
       [class*=om-icon] {
         transform: scale(.8);
@@ -147,6 +153,11 @@
     @include e(increase) {
       border-radius: 0 $--border-radius-base 0 0;
       border-bottom: $--border-base;
+
+      &:hover {
+        line-height: #{($--input-height - 2) / 2 + 5};
+        z-index: 3;
+      }
     }
 
     @include e(decrease) {
@@ -156,12 +167,26 @@
       left: auto;
       border-right: none;
       border-left: $--border-base;
+      border-top: $--border-base;
       border-radius: 0 0 $--border-radius-base 0;
+
+      &:hover {
+        line-height: #{($--input-height - 2) / 2 + 5};
+        z-index: 3;
+      }
     }
 
     &[class*=medium] {
       [class*=increase], [class*=decrease] {
         line-height: #{($--input-medium-height - 2) / 2};
+      }
+
+      [class*=increase]:hover {
+        line-height: #{($--input-medium-height - 2) / 2 + 5};
+      }
+
+      [class*=decrease]:hover {
+        line-height: #{($--input-medium-height - 2) / 2 + 5};
       }
     }
 
@@ -169,11 +194,115 @@
       [class*=increase], [class*=decrease] {
         line-height: #{($--input-small-height - 2) / 2};
       }
+      [class*=increase]:hover {
+        line-height: #{($--input-small-height - 2) / 2 + 5};
+      }
+
+      [class*=decrease]:hover {
+        line-height: #{($--input-small-height - 2) / 2 + 5};
+      }
     }
 
     &[class*=mini] {
       [class*=increase], [class*=decrease] {
         line-height: #{($--input-mini-height - 2) / 2};
+      }
+      [class*=increase]:hover {
+        line-height: #{($--input-mini-height - 2) / 2 + 3};
+      }
+
+      [class*=decrease]:hover {
+        line-height: #{($--input-mini-height - 2) / 2 + 3};
+      }
+    }
+  }
+
+  @include when(controls-left) {
+    .om-input__inner {
+      padding-left: 15px;
+      padding-right: #{$--input-height + 10};
+    }
+
+    @include e((increase, decrease)) {
+      height: auto;
+      line-height: #{($--input-height - 2) / 2};
+      transition: all .3s;
+      z-index: 2;
+
+      [class*=om-icon] {
+        transform: scale(.8);
+      }
+    }
+
+    @include e(increase) {
+      left: 1px;
+      top: 1px;
+      right: auto;
+      bottom: auto;
+      border-radius: $--border-radius-base 0 0 0;
+      border-left: none;
+      border-right: $--border-base;
+      border-bottom: $--border-base;
+
+      &:hover {
+        line-height: #{($--input-height - 2) / 2 + 5};
+        z-index: 3;
+      }
+    }
+
+    @include e(decrease) {
+      left: 1px;
+      bottom: 1px;
+      top: auto;
+      right: auto;
+      border-right: $--border-base;
+      border-left: none;
+      border-top: $--border-base;
+      border-radius: 0 0 0 $--border-radius-base;
+
+      &:hover {
+        line-height: #{($--input-height - 2) / 2 + 5};
+        z-index: 3;
+      }
+    }
+
+    &[class*=medium] {
+      [class*=increase], [class*=decrease] {
+        line-height: #{($--input-medium-height - 2) / 2};
+      }
+
+      [class*=increase]:hover {
+        line-height: #{($--input-medium-height - 2) / 2 + 5};
+      }
+
+      [class*=decrease]:hover {
+        line-height: #{($--input-medium-height - 2) / 2 + 5};
+      }
+    }
+
+    &[class*=small] {
+      [class*=increase], [class*=decrease] {
+        line-height: #{($--input-small-height - 2) / 2};
+      }
+      [class*=increase]:hover {
+        line-height: #{($--input-small-height - 2) / 2 + 5};
+      }
+
+      [class*=decrease]:hover {
+        line-height: #{($--input-small-height - 2) / 2 + 5};
+      }
+    }
+
+    &[class*=mini] {
+      [class*=increase], [class*=decrease] {
+        line-height: #{($--input-mini-height - 2) / 2};
+      }
+      [class*=increase]:hover {
+        line-height: #{($--input-mini-height - 2) / 2 + 3};
+      }
+
+      [class*=decrease]:hover {
+        line-height: #{($--input-mini-height - 2) / 2 + 3};
       }
     }
   }

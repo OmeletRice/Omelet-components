@@ -7,12 +7,12 @@ import Radio from './radio'
 import Checkbox from './checkbox'
 import Input from './input'
 import Textarea from './textarea'
+import InputNumber from './input-number'
 
 import ColorPicker from './color-picker'
 import Dialog from './dialog'
 import Dropdown from './dropdown'
 import InputChangebox from './input-changebox'
-import InputNumber from './input-number'
 
 const routers = [
   { path: '/button', component: Button },
@@ -21,13 +21,13 @@ const routers = [
   { path: '/radio', component: Radio },
   { path: '/checkbox', component: Checkbox },
   { path: '/textarea', component: Textarea },
+  { path: '/input-number', component: InputNumber },
 
   { path: '/color-picker', component: ColorPicker },
   { path: '/dialog', component: Dialog },
   { path: '/dropdown', component: Dropdown },
   { path: '/input', component: Input },
-  { path: '/input-changebox', component: InputChangebox },
-  { path: '/input-number', component: InputNumber }
+  { path: '/input-changebox', component: InputChangebox }
 ]
 
 export default routers

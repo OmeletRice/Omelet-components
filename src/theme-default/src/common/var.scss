@@ -57,7 +57,8 @@ $--color-text-placeholder: #b4bccc !default;
 
 /* Background
 -------------------------- */
-$--background-color-base: #f5f7fa;
+$--background-color-base: #f5f7fa !default;
+$--background-color-active: #e9ecf1 !default;
 
 /* Link
 -------------------------- */
@@ -290,6 +291,11 @@ $--input-mini-font-size: 12px;
 $--input-mini-height: 28px;
 
 $--input-group-color: $--color-text-secondary; 
+
+/* Input-Number
+-------------------------- */
+$--input-number-active-background-color: $--background-color-active;
+
 
 /* Input-Changebox
 -------------------------- */

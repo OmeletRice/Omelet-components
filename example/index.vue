@@ -10,12 +10,12 @@
           <router-link to="/checkbox">Checkbox</router-link>
           <router-link to="/input">Input</router-link>
           <router-link to="/textarea">Textarea</router-link>
+          <router-link to="/input-number">InputNumber</router-link>
 
           <router-link to="/color-picker">color-picker</router-link>
           <router-link to="/dialog">Dialog</router-link>
           <router-link to="/dropdown">Dropdown</router-link>
           <router-link to="/input-changebox">InputChangebox</router-link>
-          <router-link to="/input-number">InputNumber</router-link>
         </div>
       </om-col>
       <om-col :span="20">

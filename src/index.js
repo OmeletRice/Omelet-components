@@ -8,7 +8,6 @@ import OmDropdown from './components/dropdown/index.js'
 import OmDropdownMenu from './components/dropdown-menu/index.js'
 import OmDropdownItem from './components/dropdown-item/index.js'
 import OmInputChangebox from './components/input-changebox/input-changebox'
-import OmInputNumber from './components/input-number/index.js'
 // import OmScrollBar from './components/scrollbar/main'
 // import OmSelect from './components/select/select'
 // import OmSelectDropdown from './components/select/select-dropdown'
@@ -49,6 +48,7 @@ import OmCheckbox from './packages/checkbox'
 import OmCheckboxGroup from './packages/checkbox-group'
 import OmInput from './packages/input'
 import OmTextarea from './packages/textarea'
+import OmInputNumber from './packages/input-number'
 
 const components = [
   OmRow,
@@ -62,14 +62,14 @@ const components = [
   OmCheckboxGroup,
   OmInput,
   OmTextarea,
+  OmInputNumber,
 
   OmDialog,
   OmDropdown,
   OmDropdownMenu,
   OmDropdownItem,
 
-  OmInputChangebox,
-  OmInputNumber
+  OmInputChangebox
 ]
 
 const install = function (Vue, opts = {}) {
@@ -105,12 +105,12 @@ module.exports = {
   OmCheckboxGroup,
   OmInput,
   OmTextarea,
+  OmInputNumber,
 
   OmDialog,
   OmDropdown,
   OmDropdownMenu,
   OmDropdownItem,
 
-  OmInputChangebox,
-  OmInputNumber
+  OmInputChangebox
 }

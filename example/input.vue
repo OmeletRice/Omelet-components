@@ -18,9 +18,14 @@
         <div slot="append">.com</div>
       </om-input>
       <h4>prefixIcon = 'om-icon-search'</h4>
-      <om-input :prefix-icon="'om-icon-search'" :size="size"></om-input>
+      <om-input prefix-icon="om-icon-search" :size="size"></om-input>
       <h4>suffixIcon = 'om-icon-search'</h4>
-      <om-input :suffix-icon="'om-icon-search'" :size="size"></om-input>
+      <om-input suffix-icon="om-icon-search" :size="size"></om-input>
+      <h4>prepend append & prefixIcon suffixIcon</h4>
+      <om-input prefix-icon="om-icon-search" suffix-icon="om-icon-search" :size="size">
+        <div slot="prepend">Http://</div>
+        <div slot="append">.com</div>
+      </om-input>      
     </div>
   </div>
 </template>

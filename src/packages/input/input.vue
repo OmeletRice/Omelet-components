@@ -7,7 +7,7 @@
     { 'om-input-group--append': !!$slots.append },
     { 'om-input--prefix': !!$slots.prefix || prefixIcon },
     { 'om-input--suffix': !!$slots.suffix || suffixIcon }]">
-    <div class="om-input-group__prepend" v-if="!!$slots.prepend">
+    <div class="om-input-group__prepend" ref="prepend" v-if="!!$slots.prepend">
       <slot name="prepend"></slot>
     </div>
 
@@ -22,17 +22,19 @@
       @change="handleChange"
       :aria-label="label">
 
-    <span class="om-input__prefix" v-if="!!$slots.prefix || !!prefixIcon">
+    <span class="om-input__prefix" v-if="!!$slots.prefix || !!prefixIcon"
+      :style="prefixOffset">
       <slot name="prefix"></slot>
       <i :class="['om-input__icon', prefixIcon]" v-if="prefixIcon"></i>
     </span>
 
-    <span class="om-input__suffix" v-if="!!$slots.suffix || !!suffixIcon">
+    <span class="om-input__suffix" v-if="!!$slots.suffix || !!suffixIcon"
+      :style="suffixOffset">
       <slot name="suffix"></slot>
       <i :class="['om-input__icon', suffixIcon]" v-if="suffixIcon"></i>
     </span>
 
-    <div class="om-input-group__append" v-if="!!$slots.append">
+    <div class="om-input-group__append" ref="append" v-if="!!$slots.append">
       <slot name="append"></slot>
     </div>
   </div>
@@ -71,7 +73,9 @@ export default {
 
   data() {
     return {
-      currentValue: ''
+      currentValue: this.value,
+      prefixOffset: '',
+      suffixOffset: ''
     }
   },
 
@@ -103,7 +107,23 @@ export default {
     handleChange(evt) {
       const value = evt.target.value
       this.$emit('change', value)
+    },
+    fixOffset() {
+      if (this.$slots.suffixIcon || this.suffixIcon || this.$slots.prefix || this.prefixIcon) {
+        const prependEl = this.$refs.prepend
+        const appendEl = this.$refs.append
+        if (prependEl) {
+          this.prefixOffset = `transform: translateX(${prependEl.offsetWidth}px)`
+        }
+        if (appendEl) {
+          this.suffixOffset = `transform: translateX(-${appendEl.offsetWidth}px)`
+        }
+      }
     }
+  },
+
+  mounted() {
+    this.fixOffset()
   }
 }
 </script>
