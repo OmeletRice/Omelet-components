@@ -219,8 +219,8 @@
 
   @include when(controls-left) {
     .om-input__inner {
-      padding-left: 15px;
-      padding-right: #{$--input-height + 10};
+      padding-right: 15px;
+      padding-left: #{$--input-height + 10};
     }
 
     @include e((increase, decrease)) {
